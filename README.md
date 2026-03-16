@@ -17,3 +17,4 @@ https://drive.google.com/file/d/1unIc7dkPh9T7by14LClgzcRjybDvYndx/view?usp=shari
 
 
 ## QR code: (as of 16/03/2026)
+![AVE EcoTech QR Code](ave_ecotech_qr.png)
