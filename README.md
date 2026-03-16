@@ -1,5 +1,5 @@
 # AVE-Ecotech-QR-Card
-
+GitHub pages: `https://antirex.github.io/AVE-Ecotech-QR-Card/`
 Redirect page for AVE EcoTech's constant QR code.
 
 ## How it works
