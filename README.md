@@ -14,3 +14,6 @@ https://drive.google.com/file/d/1unIc7dkPh9T7by14LClgzcRjybDvYndx/view?usp=shari
 1. Enable GitHub Pages: **Settings → Pages → Source: Deploy from branch → Branch: main → / (root) → Save**
 2. Your redirect URL will be: `https://antirex.github.io/AVE-Ecotech-QR-Card/`
 3. Generate a QR code pointing to that URL — it will never need to change!
+
+
+## QR code: (as of 16/03/2026)
