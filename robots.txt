@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://antirex.github.io/AVE-Ecotech-QR-Card/sitemap.xml

@@ -7,11 +7,21 @@ A single-page marketing website for **AVE EcoTech Pvt Ltd** — turning waste in
 An editorial design — Fraunces serif display type, a warm cream/sage palette with terracotta and deep-forest-green accents — using real product photography from the company deck.
 
 ## What's here
-- `index.html` — the full website (self-contained: HTML + CSS + JS, no build step)
-- `images/` — product & lifestyle photos (extracted and optimized from the company deck)
-- `AVE-EcoTech-Deck.pdf` — company brochure, linked from the site's spec/resource links
-- `logo.jpeg` — AVE EcoTech logo (brand asset)
+- `index.html` — page markup (no build step)
+- `styles.css` — all styles (light + dark themes via `[data-theme]`)
+- `script.js` — behavior (theme toggle, mobile menu, scroll reveals, contact form)
+- `images/` — product & lifestyle photos (extracted and optimized from the company deck), plus the transparent logo mark
+- `favicon.png` / `favicon-32.png` / `apple-touch-icon.png` — brand favicons
+- `robots.txt` / `sitemap.xml` — SEO
+- `AVE-EcoTech-Deck.pdf` — company brochure, linked from the hero, EcoTiles section, contact section, and footer
+- `logo.jpeg` — original AVE EcoTech logo (brand asset)
 - `ave_ecotech_qr.png` — constant QR code (points to the GitHub Pages URL above)
+
+## Features
+- Light / dark theme toggle (remembers choice, respects OS preference)
+- Responsive across phones/tablets/laptops/desktops (zero horizontal overflow)
+- Contact form delivers inquiries to `aveecotech@gmail.com` via FormSubmit
+- SEO: Open Graph + Twitter cards + JSON-LD structured data + sitemap
 
 ## How the QR code works
 The printed QR code always points to the GitHub Pages URL. Visitors now land directly on the website. To change what visitors see, just edit `index.html` and commit — the QR code never needs to be reprinted.
