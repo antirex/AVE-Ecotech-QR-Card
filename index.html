@@ -93,6 +93,7 @@
   .nav { display: flex; align-items: center; justify-content: space-between; height: 78px; }
   .brand { display: inline-flex; align-items: center; gap: 9px; font-family: var(--serif); font-weight: 600; font-size: 1.32rem; color: var(--ink); }
   .brand .mark { width: 26px; height: 26px; color: var(--green); }
+  .brand-logo { height: 42px; width: auto; }
   .nav-links { display: flex; align-items: center; gap: 30px; }
   .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--ink-soft); transition: color .15s; }
   .nav-links a:hover { color: var(--green); }
@@ -286,6 +287,7 @@
   @media (max-width: 620px) {
     .wrap { padding: 0 20px; }
     section { padding: 64px 0; }
+    .brand-logo { height: 34px; }
     .hero h1 em { display: inline; }
     .about-stats { gap: 32px; }
     .prop-grid { grid-template-columns: 1fr; }
@@ -318,9 +320,8 @@
 <!-- ===== NAV ===== -->
 <header id="header">
   <div class="wrap nav">
-    <a href="#top" class="brand">
-      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
-      AVE EcoTech
+    <a href="#top" class="brand" aria-label="AVE EcoTech home">
+      <img src="images/logo-mark.png" alt="AVE EcoTech Pvt Ltd" class="brand-logo" />
     </a>
     <nav class="nav-links" id="navLinks">
       <a href="#top">Home</a>
