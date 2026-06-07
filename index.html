@@ -69,6 +69,14 @@
 <body>
 <a id="top"></a>
 
+<!-- ===== INTRO LOADER ===== -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <svg class="loader-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+    <span class="loader-word">AVE EcoTech</span>
+  </div>
+</div>
+
 <!-- ===== NAV ===== -->
 <header id="header">
   <div class="wrap nav">
@@ -122,8 +130,17 @@
   </div>
 </section>
 
+<!-- ===== CLAIM RIBBON ===== -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <span>100% Recycled</span><span class="star">✦</span><span>Zero Cement</span><span class="star">✦</span><span>Zero Waste</span><span class="star">✦</span><span>Net Zero Aligned</span><span class="star">✦</span><span>Circular Economy</span><span class="star">✦</span>
+    <span>100% Recycled</span><span class="star">✦</span><span>Zero Cement</span><span class="star">✦</span><span>Zero Waste</span><span class="star">✦</span><span>Net Zero Aligned</span><span class="star">✦</span><span>Circular Economy</span><span class="star">✦</span>
+  </div>
+</div>
+
 <!-- ===== ABOUT ===== -->
 <section class="about" id="about">
+  <svg class="leaf-accent" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M30 170C30 100 70 50 170 30c0 90-50 130-140 140z"/><path d="M40 160C70 120 110 80 165 40"/><path d="M60 150c10-20 20-30 40-45M85 140c8-16 18-26 35-38M110 128c8-14 16-22 30-32"/></svg>
   <div class="wrap about-grid grid-min">
     <div class="reveal">
       <span class="eyebrow accent">Our Philosophy</span>
@@ -148,6 +165,28 @@
         <svg class="ai-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
         <div><h4>Smart City Aligned</h4><p>Engineered for modern urban standards and high-performance infrastructure.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT COUNTERS ===== -->
+<section class="impact">
+  <div class="wrap impact-grid grid-min">
+    <div class="impact-stat reveal">
+      <b class="count" data-target="100" data-suffix="%">0</b>
+      <span>Recycled materials</span>
+    </div>
+    <div class="impact-stat reveal">
+      <b class="count" data-target="0" data-suffix="%">0</b>
+      <span>Cement used</span>
+    </div>
+    <div class="impact-stat reveal">
+      <b class="count" data-prefix="~" data-target="40" data-suffix="%">0</b>
+      <span>Lighter than concrete</span>
+    </div>
+    <div class="impact-stat reveal">
+      <b class="count" data-target="15" data-suffix=" N/mm²">0</b>
+      <span>Compressive strength</span>
     </div>
   </div>
 </section>
@@ -233,6 +272,26 @@
       <h2>Engineering Better Outcomes</h2>
       <p>A head-to-head comparison of material performance.</p>
     </div>
+
+    <div class="perf reveal">
+      <div class="perf-item">
+        <div class="perf-top">Compressive Strength <small>(higher is better)</small></div>
+        <div class="perf-bar"><span class="track"><i class="them" style="--w:38%"></i></span><em>5–6 N/mm²</em></div>
+        <div class="perf-bar"><span class="track"><i class="us" style="--w:100%"></i></span><em>15 N/mm²</em></div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-top">Water Resistance <small>(higher is better)</small></div>
+        <div class="perf-bar"><span class="track"><i class="them" style="--w:28%"></i></span><em>~8% absorb</em></div>
+        <div class="perf-bar"><span class="track"><i class="us" style="--w:97%"></i></span><em>&lt;1% absorb</em></div>
+      </div>
+      <div class="perf-item">
+        <div class="perf-top">Install Efficiency <small>(higher is better)</small></div>
+        <div class="perf-bar"><span class="track"><i class="them" style="--w:35%"></i></span><em>8–12% waste</em></div>
+        <div class="perf-bar"><span class="track"><i class="us" style="--w:100%"></i></span><em>0% waste</em></div>
+      </div>
+      <div class="perf-legend"><span><i class="them"></i> Cement Paver</span><span><i class="us"></i> AVE EcoTiles</span></div>
+    </div>
+
     <div class="table-scroll reveal">
       <table class="ctable">
         <thead>
@@ -297,6 +356,7 @@
 
 <!-- ===== CTA / CONTACT ===== -->
 <section class="cta" id="contact">
+  <svg class="leaf-accent leaf-accent-r" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M30 170C30 100 70 50 170 30c0 90-50 130-140 140z"/><path d="M40 160C70 120 110 80 165 40"/><path d="M60 150c10-20 20-30 40-45M85 140c8-16 18-26 35-38M110 128c8-14 16-22 30-32"/></svg>
   <div class="wrap cta-grid grid-min">
     <div class="reveal">
       <h2>Request Samples or Get a Quote</h2>
