@@ -18,7 +18,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -41,7 +41,7 @@
     --radius-lg: 26px;
     --max: 1200px;
     --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
-    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,8 +52,18 @@
     background: var(--cream);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv01", "liga" 1;
     overflow-x: hidden;
   }
+  /* paper-grain atmosphere */
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 9000; pointer-events: none;
+    opacity: .04; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection { background: var(--terracotta); color: #F6EFE4; }
+  :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
   h1, h2, h3, .serif { font-family: var(--serif); font-weight: 500; line-height: 1.08; letter-spacing: -0.01em; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
@@ -259,9 +269,34 @@
   .foot-bottom a { color: #7E8E7D; }
   .foot-bottom a:hover { color: var(--sage); }
 
-  /* ===== reveal ===== */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  /* ===== reveal & motion ===== */
+  :root { --ease: cubic-bezier(.2,.7,.2,1); }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .85s var(--ease), transform .85s var(--ease); }
   .reveal.in { opacity: 1; transform: none; }
+
+  /* staggered children inside grids — container stays put, items cascade */
+  .prop-grid.reveal, .apps-grid.reveal { opacity: 1; transform: none; }
+  .prop-grid .prop, .apps-grid .app-card { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .prop-grid.in .prop, .apps-grid.in .app-card { opacity: 1; transform: none; }
+  .prop-grid.in .prop:nth-child(2), .apps-grid.in .app-card:nth-child(2) { transition-delay: .08s; }
+  .prop-grid.in .prop:nth-child(3), .apps-grid.in .app-card:nth-child(3) { transition-delay: .16s; }
+  .prop-grid.in .prop:nth-child(4), .apps-grid.in .app-card:nth-child(4) { transition-delay: .24s; }
+  .prop-grid.in .prop:nth-child(5) { transition-delay: .32s; }
+  .prop-grid.in .prop:nth-child(6) { transition-delay: .40s; }
+
+  /* animated nav underline */
+  .nav-links a:not(.btn) { position: relative; }
+  .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; bottom: -5px; width: 0; height: 1.5px; background: var(--green); transition: width .28s var(--ease); }
+  .nav-links a:not(.btn):hover::after { width: 100%; }
+
+  /* gentle float on the hero recycled-content badge */
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .badge-card { animation: floaty 6s ease-in-out infinite; }
+
+  /* spec rows lift subtly on hover */
+  .spec-row { transition: padding-left .25s var(--ease); }
+  .product .spec-table:hover .spec-row { opacity: .55; transition: opacity .25s; }
+  .product .spec-table .spec-row:hover { opacity: 1; padding-left: 8px; }
 
   /* ===== RESPONSIVE ===== */
   @media (min-width: 1500px) { :root { --max: 1280px; } }
@@ -322,8 +357,10 @@
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .reveal, .prop-grid .prop, .apps-grid .app-card { opacity: 1 !important; transform: none !important; transition: none !important; }
     .app-card img, .btn { transition: none !important; }
+    .badge-card { animation: none !important; }
+    .product .spec-table:hover .spec-row { opacity: 1 !important; }
   }
 </style>
 </head>
@@ -356,20 +393,20 @@
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="wrap hero-grid grid-min">
-    <div class="reveal">
-      <span class="eyebrow">The Modern Conservator</span>
-      <h1>Turning Waste into <em>Sustainable Infrastructure.</em></h1>
-      <p class="lead">100% Recycled · Zero Cement · Zero Waste. We are engineering the next generation of building materials from what others discard.</p>
-      <div class="hero-actions">
+    <div>
+      <span class="eyebrow reveal" style="transition-delay:.05s">The Modern Conservator</span>
+      <h1 class="reveal" style="transition-delay:.12s">Turning Waste into <em>Sustainable Infrastructure.</em></h1>
+      <p class="lead reveal" style="transition-delay:.22s">100% Recycled · Zero Cement · Zero Waste. We are engineering the next generation of building materials from what others discard.</p>
+      <div class="hero-actions reveal" style="transition-delay:.32s">
         <a href="#contact" class="btn btn-fill">Request a Sample</a>
         <a href="#product" class="btn btn-outline">Our Product Range</a>
       </div>
-      <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="hero-brochure">
+      <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="hero-brochure reveal" style="transition-delay:.42s">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
         Download Brochure (PDF)
       </a>
     </div>
-    <div class="hero-media reveal">
+    <div class="hero-media reveal" style="transition-delay:.2s">
       <div class="photo"><img src="images/hero-nature.jpg" alt="A road winding through a lush green forest" loading="eager" /></div>
       <div class="badge-card">
         <b>100%</b>
