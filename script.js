@@ -51,7 +51,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     } catch (err) {
       // fallback: open email client with details pre-filled
       const v = (id) => encodeURIComponent(document.getElementById(id).value || '');
-      const body = `Name: ${v('name')}%0AEmail: ${v('email')}%0AOrganization: ${v('org')}%0A%0AProject Brief:%0A${v('brief')}`;
+      const body = `Name: ${v('name')}%0AEmail: ${v('email')}%0APhone: ${v('phone')}%0AOrganization: ${v('org')}%0A%0AProject Brief:%0A${v('brief')}`;
       window.location.href = `mailto:aveecotech@gmail.com?subject=${encodeURIComponent('Inquiry — AVE EcoTech')}&body=${body}`;
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Inquiry';
