@@ -98,17 +98,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }, { threshold: 0.4 });
   document.querySelectorAll('.count').forEach((c) => countIO.observe(c));
 
-  // magnetic buttons (fine pointers only)
-  if (window.matchMedia('(pointer: fine)').matches && !prefersReduced) {
-    document.querySelectorAll('.btn-fill, .theme-toggle').forEach((el) => {
-      el.addEventListener('pointermove', (e) => {
-        const r = el.getBoundingClientRect();
-        el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.25}px, ${(e.clientY - r.top - r.height / 2) * 0.4}px)`;
-      });
-      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
-    });
-  }
-
   // hero parallax
   if (!prefersReduced) {
     const heroMedia = document.querySelector('.hero-media');
