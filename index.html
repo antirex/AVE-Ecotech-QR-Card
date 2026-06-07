@@ -4,693 +4,624 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AVE EcoTech — Turning Waste into Sustainable Infrastructure</title>
-<meta name="description" content="AVE EcoTech Pvt Ltd converts plastic and industrial waste into high-performance, eco-friendly construction materials. 100% recycled, zero cement, zero waste EcoTiles." />
-<meta name="theme-color" content="#2E9E3F" />
+<meta name="description" content="AVE EcoTech Pvt Ltd engineers high-performance, 100% recycled construction materials from plastic and industrial waste. Zero cement. Zero waste. Meet EcoTiles." />
+<meta name="theme-color" content="#20392A" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="AVE EcoTech — Green Construction Materials" />
+<meta property="og:title" content="AVE EcoTech — The Modern Conservator" />
 <meta property="og:description" content="Turning waste into sustainable infrastructure. 100% Recycled · Zero Cement · Zero Waste." />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="logo.jpeg" />
+<meta property="og:image" content="images/hero-nature.jpg" />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
   :root {
-    --green: #2E9E3F;
-    --green-bright: #57B947;
-    --green-light: #EAF6E7;
-    --green-dark: #1C6B2A;
-    --blue: #1E94D2;
-    --ink: #16231C;
-    --ink-soft: #4A5A50;
-    --muted: #7A8A80;
-    --bg: #FFFFFF;
-    --bg-soft: #F5F9F2;
-    --border: #E6EDE4;
-    --shadow: 0 18px 50px -22px rgba(28, 107, 42, 0.28);
-    --shadow-sm: 0 8px 28px -16px rgba(22, 35, 28, 0.25);
-    --radius: 20px;
-    --radius-sm: 14px;
-    --max: 1160px;
+    --cream: #F4F1E8;
+    --cream-2: #ECE8DD;
+    --paper: #FBFAF4;
+    --ink: #1C2A20;
+    --ink-soft: #565E52;
+    --muted: #8C8E80;
+    --green: #2E5538;
+    --green-deep: #21402C;
+    --green-darker: #16291C;
+    --sage: #DBE3CE;
+    --sage-soft: #E8ECDC;
+    --terracotta: #B5512A;
+    --terracotta-d: #9C4422;
+    --line: #DAD5C6;
+    --line-soft: #E5E1D4;
+    --radius: 18px;
+    --radius-lg: 26px;
+    --max: 1200px;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
   body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--sans);
     color: var(--ink);
-    background: var(--bg);
-    line-height: 1.65;
+    background: var(--cream);
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  h1, h2, h3 { font-family: 'Sora', 'Plus Jakarta Sans', sans-serif; line-height: 1.12; letter-spacing: -0.02em; }
+  h1, h2, h3, .serif { font-family: var(--serif); font-weight: 500; line-height: 1.08; letter-spacing: -0.01em; }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
-  section { padding: 96px 0; }
-  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-  /* Prevent grid/flex children from refusing to shrink (avoids horizontal overflow on phones) */
-  .hero-grid > *, .about-grid > *, .product-grid > *, .cta-grid > *,
-  .features > *, .apps > *, .stats-grid > * { min-width: 0; }
 
+  section { padding: 110px 0; }
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  .wrap-narrow { max-width: 1040px; }
+  .grid-min > * { min-width: 0; }
+
+  /* shared bits */
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--green);
-    background: var(--green-light); padding: 7px 14px; border-radius: 100px;
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
   }
-  .section-head { max-width: 660px; margin-bottom: 54px; }
-  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-  .section-head h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); margin: 18px 0 14px; }
-  .section-head p { color: var(--ink-soft); font-size: 1.06rem; }
+  .eyebrow.accent { color: var(--terracotta); }
+  .lead { color: var(--ink-soft); font-size: 1.05rem; }
 
-  /* Buttons */
   .btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-weight: 700; font-size: 0.98rem; padding: 14px 26px;
-    border-radius: 100px; cursor: pointer; border: 1.5px solid transparent;
-    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    font-family: var(--sans); font-weight: 600; font-size: 0.92rem; letter-spacing: .01em;
+    padding: 14px 26px; border-radius: 100px; cursor: pointer;
+    border: 1.5px solid transparent; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
   }
-  .btn svg { width: 18px; height: 18px; }
-  .btn-primary { background: linear-gradient(135deg, var(--green-bright), var(--green)); color: #fff; box-shadow: var(--shadow-sm); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -14px rgba(46,158,63,.5); }
-  .btn-ghost { background: #fff; color: var(--ink); border-color: var(--border); }
-  .btn-ghost:hover { transform: translateY(-2px); border-color: var(--green-bright); color: var(--green-dark); }
+  .btn svg { width: 17px; height: 17px; }
+  .btn-fill { background: var(--green-deep); color: #F4F1E8; }
+  .btn-fill:hover { background: var(--green-darker); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-outline:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+  .btn-cream { background: var(--cream); color: var(--green-darker); }
+  .btn-cream:hover { background: #fff; transform: translateY(-2px); }
 
-  /* Nav */
+  /* ===== NAV ===== */
   header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,.82); backdrop-filter: blur(14px);
-    border-bottom: 1px solid transparent; transition: border-color .25s, box-shadow .25s;
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(244,241,232,.84); backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid transparent; transition: border-color .25s, background .25s;
   }
-  header.scrolled { border-color: var(--border); box-shadow: 0 6px 24px -18px rgba(0,0,0,.3); }
-  .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-  .brand { display: flex; align-items: center; gap: 11px; font-family: 'Sora'; font-weight: 800; font-size: 1.18rem; }
-  .brand img { height: 38px; width: auto; border-radius: 8px; }
-  .nav-links { display: flex; align-items: center; gap: 34px; }
-  .nav-links a { font-weight: 600; font-size: 0.95rem; color: var(--ink-soft); transition: color .15s; }
+  header.scrolled { border-color: var(--line); background: rgba(244,241,232,.94); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 78px; }
+  .brand { display: inline-flex; align-items: center; gap: 9px; font-family: var(--serif); font-weight: 600; font-size: 1.32rem; color: var(--ink); }
+  .brand .mark { width: 26px; height: 26px; color: var(--green); }
+  .nav-links { display: flex; align-items: center; gap: 30px; }
+  .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--ink-soft); transition: color .15s; }
   .nav-links a:hover { color: var(--green); }
-  .nav-cta { display: flex; align-items: center; gap: 12px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
   .burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
   .burger span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; border-radius: 2px; transition: .3s; }
   .menu-only { display: none; }
 
-  /* Hero */
-  .hero { position: relative; padding: 70px 0 90px; overflow: hidden; }
+  /* ===== HERO ===== */
+  .hero { position: relative; padding: 56px 0 90px; overflow: hidden; }
   .hero::before {
-    content: ""; position: absolute; inset: 0; z-index: -2;
-    background:
-      radial-gradient(900px 480px at 88% -8%, rgba(87,185,71,.16), transparent 60%),
-      radial-gradient(760px 460px at -5% 12%, rgba(30,148,210,.10), transparent 55%),
-      linear-gradient(180deg, #F7FBF4 0%, #ffffff 70%);
+    content: ""; position: absolute; z-index: 0; top: -120px; left: -160px;
+    width: 760px; height: 620px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(255,255,255,.85), rgba(255,255,255,0));
   }
-  .blob { position: absolute; z-index: -1; filter: blur(6px); opacity: .5; }
-  .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
-  .hero h1 { font-size: clamp(2.3rem, 5.4vw, 4rem); margin: 22px 0; }
-  .hero h1 .accent { background: linear-gradient(120deg, var(--green-bright), var(--green-dark)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .hero p.lead { font-size: 1.16rem; color: var(--ink-soft); max-width: 540px; }
-  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 32px; }
-  .pill { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border); padding: 9px 16px; border-radius: 100px; font-weight: 600; font-size: 0.9rem; box-shadow: var(--shadow-sm); }
-  .pill b { color: var(--green); }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.02fr .98fr; gap: 60px; align-items: center; }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 26px 0 24px; letter-spacing: -0.025em; }
+  .hero h1 em { font-style: italic; font-weight: 400; display: block; }
+  .hero .lead { max-width: 460px; font-size: 1.08rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 
-  /* Hero visual card */
-  .hero-visual { position: relative; }
-  .hero-card {
-    background: #fff; border: 1px solid var(--border); border-radius: 26px;
-    padding: 30px; box-shadow: var(--shadow); position: relative; overflow: hidden;
+  .hero-media { position: relative; }
+  .hero-media .photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 40px 80px -40px rgba(28,42,32,.5); aspect-ratio: 4/4.4; }
+  .hero-media .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .badge-card {
+    position: absolute; left: -22px; bottom: 38px; background: var(--terracotta); color: #F6EFE4;
+    padding: 22px 26px; border-radius: 16px; box-shadow: 0 24px 50px -24px rgba(181,81,42,.7); max-width: 200px;
   }
-  .hero-card::after { content:""; position:absolute; right:-60px; top:-60px; width:180px; height:180px; background: radial-gradient(circle, rgba(87,185,71,.18), transparent 70%); }
-  .hero-card .leaf-mark { width: 60px; height: 60px; display:grid; place-items:center; background: var(--green-light); border-radius: 16px; margin-bottom: 18px; }
-  .hero-card h3 { font-size: 1.25rem; margin-bottom: 6px; }
-  .hero-card p { color: var(--ink-soft); font-size: .96rem; }
-  .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
-  .mini-stat { background: var(--bg-soft); border-radius: var(--radius-sm); padding: 16px; }
-  .mini-stat b { display:block; font-family:'Sora'; font-size: 1.5rem; color: var(--green-dark); }
-  .mini-stat span { font-size: .82rem; color: var(--muted); font-weight: 600; }
-  .swatch-row { display:flex; gap:9px; margin-top: 22px; align-items:center; }
-  .swatch-row small { color: var(--muted); font-weight:600; font-size:.8rem; margin-right:4px; }
-  .sw { width: 26px; height: 26px; border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(255,255,255,.6), 0 2px 6px rgba(0,0,0,.15); }
+  .badge-card b { font-family: var(--serif); font-size: 2.6rem; font-weight: 500; line-height: 1; display: block; }
+  .badge-card span { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; opacity: .9; }
 
-  /* Stats strip */
-  .stats { background: linear-gradient(120deg, var(--green-dark), var(--green)); color: #fff; padding: 54px 0; }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; text-align: center; }
-  .stat b { font-family: 'Sora'; font-size: clamp(1.9rem, 4vw, 2.6rem); display: block; }
-  .stat span { opacity: .85; font-weight: 600; font-size: .92rem; }
+  /* ===== ABOUT ===== */
+  .about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; }
+  .about h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 26px; max-width: 14ch; }
+  .about p { color: var(--ink-soft); margin-bottom: 18px; max-width: 46ch; }
+  .about-stats { display: flex; gap: 46px; margin-top: 38px; }
+  .about-stats .st b { font-family: var(--serif); font-size: 2rem; font-weight: 500; display: block; color: var(--ink); }
+  .about-stats .st span { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .about-list { display: flex; flex-direction: column; }
+  .about-item { display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 26px 0 26px 26px; border-left: 1px solid var(--line); position: relative; }
+  .about-item + .about-item { border-top: 1px solid var(--line-soft); }
+  .about-item .ai-ico { width: 26px; height: 26px; color: var(--green); }
+  .about-item h4 { font-family: var(--sans); font-weight: 700; font-size: 1.02rem; margin-bottom: 4px; }
+  .about-item p { color: var(--ink-soft); font-size: .92rem; margin: 0; }
 
-  /* About */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .about-text p { color: var(--ink-soft); margin-bottom: 16px; font-size: 1.05rem; }
-  .about-text .closing { font-weight: 700; color: var(--green-dark); font-size: 1.12rem; }
-  .goals { display:flex; flex-wrap:wrap; gap: 10px; margin-top: 22px; }
-  .goal-tag { font-size:.85rem; font-weight:700; color: var(--green-dark); background: var(--green-light); padding: 8px 14px; border-radius: 10px; }
-  .about-visual { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; }
-  .circular { display:grid; gap: 18px; }
-  .circ-step { display:flex; gap:16px; align-items:flex-start; }
-  .circ-step .num { flex:none; width:42px; height:42px; border-radius:12px; background: linear-gradient(135deg,var(--green-bright),var(--green)); color:#fff; font-family:'Sora'; font-weight:700; display:grid; place-items:center; }
-  .circ-step h4 { font-size:1.02rem; font-family:'Plus Jakarta Sans'; font-weight:700; }
-  .circ-step p { color: var(--ink-soft); font-size:.93rem; }
-
-  /* Why us */
-  .why { background: var(--bg-soft); }
-  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .feature {
-    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 26px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+  /* ===== PROPERTIES ===== */
+  .props { background: var(--cream-2); }
+  .props .head { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+  .props .head h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-top: 14px; }
+  .prop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .prop {
+    padding: 36px 30px 34px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line);
+    transition: background .2s;
   }
-  .feature:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #fff; }
-  .feature .ico { width: 52px; height: 52px; border-radius: 14px; background: var(--green-light); display: grid; place-items: center; margin-bottom: 16px; color: var(--green-dark); }
-  .feature .ico svg { width: 26px; height: 26px; }
-  .feature h3 { font-size: 1.1rem; font-family: 'Plus Jakarta Sans'; font-weight: 700; margin-bottom: 6px; }
-  .feature p { color: var(--ink-soft); font-size: .94rem; }
+  .prop:nth-child(3n) { border-right: none; }
+  .prop:nth-last-child(-n+3) { border-bottom: none; }
+  .prop:hover { background: rgba(255,255,255,.45); }
+  .prop .p-ico { width: 30px; height: 30px; color: var(--green); margin-bottom: 18px; }
+  .prop h3 { font-family: var(--sans); font-weight: 700; font-size: 1.06rem; margin-bottom: 8px; }
+  .prop p { color: var(--ink-soft); font-size: .92rem; }
 
-  /* Product */
-  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .spec-card { background:#fff; border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow:hidden; }
-  .spec-head { background: linear-gradient(135deg, var(--green-dark), var(--green)); color:#fff; padding: 26px 30px; }
-  .spec-head h3 { font-size: 1.5rem; }
-  .spec-head p { opacity:.9; font-size:.92rem; }
-  .spec-list { padding: 12px 30px 26px; }
-  .spec-row { display:flex; justify-content:space-between; align-items:center; gap:16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
-  .spec-row:last-child { border-bottom: none; }
-  .spec-row span { color: var(--ink-soft); font-weight: 600; font-size:.95rem; }
-  .spec-row b { font-family:'Sora'; color: var(--green-dark); font-size: 1.02rem; text-align:right; }
-  .colours { margin-top: 4px; }
-  .colours h3 { font-size: 1.3rem; margin-bottom: 6px; }
-  .colours > p { color: var(--ink-soft); margin-bottom: 20px; }
-  .swatch-grid { display:flex; flex-wrap:wrap; gap: 16px; }
-  .swatch-grid .item { text-align:center; }
-  .swatch-grid .dot { width: 60px; height: 60px; border-radius: 16px; box-shadow: 0 6px 16px -6px rgba(0,0,0,.35), inset 0 0 0 3px rgba(255,255,255,.5); }
-  .swatch-grid .item span { display:block; font-size:.74rem; color: var(--muted); font-weight:600; margin-top:8px; }
-  .tile-note { margin-top: 26px; padding: 16px 18px; background: var(--green-light); border-radius: var(--radius-sm); font-size:.92rem; color: var(--green-dark); font-weight:600; display:flex; gap:10px; align-items:center; }
+  /* ===== ECOTILES ===== */
+  .product { background: var(--cream); }
+  .product-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 64px; align-items: center; }
+  .product-media { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 36px 70px -38px rgba(28,42,32,.5); aspect-ratio: 1/1; }
+  .product-media img { width: 100%; height: 100%; object-fit: cover; }
+  .product h2 { font-size: clamp(1.9rem, 3.8vw, 2.8rem); margin: 14px 0 26px; }
+  .spec-table { border-top: 1px solid var(--line); }
+  .spec-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 2px; border-bottom: 1px solid var(--line); }
+  .spec-row span { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .spec-row b { font-family: var(--serif); font-weight: 500; font-size: 1.18rem; color: var(--ink); }
+  .spec-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: var(--terracotta); font-weight: 600; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1px solid var(--terracotta); padding-bottom: 3px; transition: gap .2s; }
+  .spec-link:hover { gap: 13px; }
 
-  /* Comparison table */
-  .compare { background: var(--bg-soft); }
-  .table-card { background:#fff; border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; }
+  /* ===== COMPARISON ===== */
+  .compare { background: var(--cream-2); }
+  .compare .head { margin-bottom: 44px; }
+  .compare .head h2 { font-size: clamp(1.9rem, 3.8vw, 2.8rem); margin-bottom: 10px; }
+  .compare .head p { color: var(--ink-soft); }
+  .ctable { width: 100%; border-collapse: collapse; font-size: .96rem; }
+  .ctable thead th { text-align: left; padding: 16px 22px; font-family: var(--sans); font-weight: 600; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
+  .ctable thead th.us { color: var(--green); }
+  .ctable td { padding: 17px 22px; border-bottom: 1px solid var(--line-soft); }
+  .ctable td.param { font-weight: 600; color: var(--ink); }
+  .ctable td.them { color: var(--ink-soft); }
+  .ctable .us { background: var(--sage-soft); }
+  .ctable td.us { font-weight: 600; color: var(--green); }
+  .ctable thead th.us { background: var(--sage); border-radius: 10px 10px 0 0; }
+  .ctable tbody tr:last-child td { border-bottom: none; }
+  .ctable tbody tr:last-child td.us { border-radius: 0 0 10px 10px; }
   .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { width: 100%; border-collapse: collapse; min-width: 460px; }
-  thead th { text-align:left; font-family:'Sora'; font-size:.92rem; padding: 18px 22px; background: #fff; color: var(--ink); border-bottom: 2px solid var(--border); }
-  thead th.us { background: var(--green); color:#fff; }
-  thead th.them { color: var(--muted); }
-  tbody td { padding: 15px 22px; border-bottom: 1px solid var(--border); font-size: .96rem; }
-  tbody tr:last-child td { border-bottom: none; }
-  td.param { font-weight: 700; }
-  td.them { color: var(--ink-soft); }
-  td.us { background: var(--green-light); font-weight: 700; color: var(--green-dark); }
-  tbody tr:hover td { background: #fafdf8; }
-  tbody tr:hover td.us { background: #dcefd6; }
+  .ctable { min-width: 560px; }
 
-  /* Applications */
-  .apps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .app {
-    position: relative; border-radius: var(--radius); padding: 30px 24px; min-height: 180px;
-    border: 1px solid var(--border); background: #fff; overflow:hidden;
-    display:flex; flex-direction:column; justify-content:flex-end;
-    transition: transform .2s, box-shadow .2s;
+  /* ===== APPLICATIONS ===== */
+  .apps { background: var(--cream); }
+  .apps-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 48px; }
+  .apps-head h2 { font-size: clamp(1.9rem, 3.8vw, 2.8rem); margin-top: 14px; max-width: 16ch; }
+  .apps-head p { color: var(--ink-soft); }
+  .apps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .app-card { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 3/4; box-shadow: 0 20px 44px -28px rgba(28,42,32,.5); }
+  .app-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .app-card:hover img { transform: scale(1.06); }
+  .app-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(22,41,28,.82) 0%, rgba(22,41,28,.1) 45%, transparent 70%); }
+  .app-card .label { position: absolute; z-index: 2; left: 20px; bottom: 18px; color: #F4F1E8; }
+  .app-card .label .ico { width: 20px; height: 20px; margin-bottom: 8px; opacity: .9; }
+  .app-card .label h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; }
+  .app-card .label p { font-size: .8rem; opacity: .85; }
+
+  /* ===== CTA / CONTACT ===== */
+  .cta { background: var(--green-deep); color: #EDEAE0; padding: 100px 0; }
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .cta h2 { font-size: clamp(2rem, 4.4vw, 3.1rem); margin-bottom: 18px; color: #F6F3E9; }
+  .cta .lead { color: rgba(237,234,224,.78); max-width: 42ch; }
+  .cta-contact { margin-top: 40px; display: flex; flex-direction: column; gap: 22px; }
+  .cta-contact .row { display: flex; gap: 16px; align-items: flex-start; }
+  .cta-contact .row .ico { width: 22px; height: 22px; color: var(--sage); flex: none; margin-top: 3px; }
+  .cta-contact .row small { display: block; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(237,234,224,.55); margin-bottom: 2px; }
+  .cta-contact .row a, .cta-contact .row span.v { color: #F4F1E8; font-weight: 500; font-size: 1.02rem; }
+  .cta-contact .row a:hover { color: var(--sage); }
+
+  .form { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-lg); padding: 34px; }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: rgba(237,234,224,.65); margin-bottom: 9px; }
+  .field input, .field textarea {
+    width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18);
+    border-radius: 12px; padding: 13px 15px; color: #F4F1E8; font-family: var(--sans); font-size: .96rem; transition: border-color .2s, background .2s;
   }
-  .app:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .app .ico { position:absolute; top:22px; left:24px; width:46px; height:46px; border-radius:12px; background: var(--green-light); display:grid; place-items:center; color: var(--green-dark); }
-  .app .ico svg { width: 24px; height: 24px; }
-  .app h3 { font-size: 1.15rem; font-family:'Plus Jakarta Sans'; font-weight: 700; }
-  .app p { color: var(--ink-soft); font-size:.88rem; }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(237,234,224,.4); }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--sage); background: rgba(255,255,255,.1); }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .form .btn { width: 100%; }
+  .form-note { font-size: .78rem; color: rgba(237,234,224,.55); margin-top: 14px; text-align: center; }
 
-  /* CTA / contact */
-  .cta-band { padding: 0 0 96px; }
-  .cta-card {
-    background: linear-gradient(135deg, var(--green-dark), var(--green) 60%, var(--green-bright));
-    border-radius: 28px; padding: 60px; color:#fff; position: relative; overflow:hidden;
-  }
-  .cta-card::before { content:""; position:absolute; right:-80px; bottom:-80px; width:320px; height:320px; border-radius:50%; background: rgba(255,255,255,.08); }
-  .cta-card::after { content:""; position:absolute; left:-60px; top:-60px; width:200px; height:200px; border-radius:50%; background: rgba(255,255,255,.06); }
-  .cta-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items:center; position:relative; z-index:1; }
-  .cta-card h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 14px; }
-  .cta-card p { opacity:.92; font-size: 1.05rem; max-width: 460px; }
-  .cta-actions { display:flex; flex-wrap:wrap; gap: 14px; margin-top: 26px; }
-  .btn-white { background:#fff; color: var(--green-dark); }
-  .btn-white:hover { transform: translateY(-2px); }
-  .btn-outline-w { background: transparent; color:#fff; border-color: rgba(255,255,255,.6); }
-  .btn-outline-w:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
-  .contact-box { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: var(--radius); padding: 28px; backdrop-filter: blur(6px); }
-  .contact-box h4 { font-size: .82rem; letter-spacing:.1em; text-transform:uppercase; opacity:.8; margin-bottom: 16px; font-family:'Plus Jakarta Sans'; }
-  .contact-row { display:flex; align-items:center; gap: 14px; padding: 10px 0; font-weight:600; }
-  .contact-row svg { width: 20px; height: 20px; flex:none; opacity:.9; }
-  .contact-row a { transition: opacity .15s; }
-  .contact-row a:hover { opacity: .75; }
+  /* ===== FOOTER ===== */
+  footer { background: var(--green-darker); color: #B9C4B6; padding: 76px 0 30px; }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
+  .foot-brand { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; color: #F4F1E8; display: inline-flex; align-items: center; gap: 9px; margin-bottom: 16px; }
+  .foot-brand .mark { width: 24px; height: 24px; color: var(--sage); }
+  .foot-col p { font-size: .9rem; color: #93A292; max-width: 34ch; }
+  .foot-col h5 { color: #F4F1E8; font-family: var(--sans); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 18px; font-weight: 600; }
+  .foot-col a { display: block; font-size: .92rem; color: #B9C4B6; padding: 6px 0; transition: color .15s; }
+  .foot-col a:hover { color: var(--sage); }
+  .foot-col .static { font-size: .92rem; color: #B9C4B6; padding: 6px 0; }
+  .socials { display: flex; gap: 12px; margin-top: 20px; }
+  .socials a { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; display: grid; place-items: center; }
+  .socials a svg { width: 16px; height: 16px; }
+  .socials a:hover { background: rgba(255,255,255,.08); }
+  .foot-bottom { margin-top: 56px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .82rem; color: #7E8E7D; }
+  .foot-bottom a { color: #7E8E7D; }
+  .foot-bottom a:hover { color: var(--sage); }
 
-  /* Footer */
-  footer { background: var(--ink); color: #cdd8d0; padding: 54px 0 30px; }
-  .foot-grid { display:flex; flex-wrap:wrap; justify-content: space-between; gap: 30px; align-items:flex-start; }
-  .foot-brand { display:flex; align-items:center; gap:12px; font-family:'Sora'; font-weight:800; font-size:1.2rem; color:#fff; margin-bottom:12px; }
-  .foot-brand img { height: 36px; border-radius: 8px; }
-  .foot-col p { font-size:.92rem; max-width: 320px; color:#9fb0a6; }
-  .foot-links { display:flex; flex-direction:column; gap:10px; }
-  .foot-links a { font-size:.93rem; color:#cdd8d0; transition: color .15s; }
-  .foot-links a:hover { color: var(--green-bright); }
-  .foot-col h5 { color:#fff; font-size:.95rem; margin-bottom:14px; font-family:'Plus Jakarta Sans'; }
-  .foot-bottom { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1); display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-size:.85rem; color:#8a9b91; }
-
-  /* Reveal animation */
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  /* ===== reveal ===== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
   .reveal.in { opacity: 1; transform: none; }
 
-  /* Responsive */
-  /* Large desktops / TVs — cap line lengths, breathe */
-  @media (min-width: 1440px) {
-    :root { --max: 1240px; }
-    .hero h1 { font-size: 4.2rem; }
-    section { padding: 110px 0; }
+  /* ===== RESPONSIVE ===== */
+  @media (min-width: 1500px) { :root { --max: 1280px; } }
+
+  @media (max-width: 1040px) {
+    .nav-links { gap: 22px; }
+    .apps-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   }
 
-  /* Small laptops / large tablets landscape */
-  @media (max-width: 1080px) {
-    .nav-links { gap: 24px; }
-    .features { grid-template-columns: repeat(2, 1fr); }
-    .apps { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  /* Tablets / mobile nav */
-  @media (max-width: 940px) {
-    .hero-grid, .about-grid, .product-grid, .cta-grid { grid-template-columns: 1fr; gap: 40px; }
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  @media (max-width: 920px) {
+    section { padding: 80px 0; }
     .nav-links { display: none; }
     .burger { display: block; }
     .nav-links.open {
-      display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 74px; left: 0; right: 0;
-      background: #fff; padding: 20px 24px 26px; gap: 6px; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column; align-items: stretch; position: absolute;
+      top: 78px; left: 0; right: 0; background: var(--cream); padding: 20px 32px 28px;
+      gap: 4px; border-bottom: 1px solid var(--line); box-shadow: 0 20px 40px -24px rgba(0,0,0,.3);
     }
-    .nav-links.open a:not(.menu-only) { padding: 10px 4px; border-bottom: 1px solid var(--border); }
-    .nav-links.open .menu-only { display: inline-flex; justify-content: center; margin-top: 8px; }
-    .nav-links.open .menu-only.btn-primary { margin-top: 4px; }
-    .nav-cta .btn-ghost, .nav-cta .btn-primary { display: none; }
-    section { padding: 72px 0; }
-    .cta-card, .about-visual { padding: 34px 26px; }
-    .hero-visual { max-width: 460px; margin: 0 auto; width: 100%; }
+    .nav-links.open a:not(.menu-only) { padding: 11px 2px; border-bottom: 1px solid var(--line-soft); font-size: .98rem; }
+    .nav-links.open .menu-only { display: inline-flex; margin-top: 12px; }
+    .nav-right .btn-fill { display: none; }
+    .hero-grid, .about-grid, .product-grid, .apps-head, .cta-grid { grid-template-columns: 1fr; }
+    .hero-grid { gap: 48px; }
+    .about-grid { gap: 48px; }
+    .product-grid { gap: 44px; }
+    .product-media { aspect-ratio: 16/10; order: 2; }
+    .hero-media { max-width: 480px; margin: 0 auto; width: 100%; }
+    .prop-grid { grid-template-columns: repeat(2, 1fr); }
+    .prop:nth-child(3n) { border-right: 1px solid var(--line); }
+    .prop:nth-child(2n) { border-right: none; }
+    .prop:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
+    .prop:nth-last-child(-n+2) { border-bottom: none; }
+    .cta-grid { gap: 44px; }
   }
 
-  /* Phones */
   @media (max-width: 620px) {
-    .wrap { padding: 0 18px; }
-    .features, .apps, .stats-grid { grid-template-columns: 1fr; }
-    .swatch-grid { gap: 12px; }
-    .swatch-grid .dot { width: 50px; height: 50px; }
-    .cta-card { padding: 30px 22px; }
-    .cta-band { padding-bottom: 72px; }
-    .hero-actions .btn, .cta-actions .btn { width: 100%; justify-content: center; }
-    .section-head { margin-bottom: 38px; }
-    .brand img { height: 32px; }
-    .foot-grid { gap: 26px; }
+    .wrap { padding: 0 20px; }
+    section { padding: 64px 0; }
+    .hero h1 em { display: inline; }
+    .about-stats { gap: 32px; }
+    .prop-grid { grid-template-columns: 1fr; }
+    .prop { border-right: none !important; border-bottom: 1px solid var(--line) !important; }
+    .prop:last-child { border-bottom: none !important; }
+    .apps-grid { grid-template-columns: 1fr; }
+    .app-card { aspect-ratio: 16/10; }
+    .hero-actions .btn { flex: 1 1 100%; }
+    .badge-card { left: 12px; bottom: 12px; padding: 16px 18px; }
+    .badge-card b { font-size: 2rem; }
+    .form { padding: 24px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   }
 
-  /* Very small phones */
-  @media (max-width: 380px) {
-    .hero-badges { gap: 8px; }
-    .pill { padding: 8px 12px; font-size: .82rem; }
-    .mini-stats { grid-template-columns: 1fr; }
-    .nav-cta .btn-primary { padding: 11px 16px; font-size: .9rem; }
+  @media (max-width: 420px) {
+    .foot-grid { grid-template-columns: 1fr; }
+    .about-stats { flex-direction: column; gap: 22px; }
   }
 
-  /* Respect reduced-motion preferences */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .btn, .feature, .app { transition: none !important; }
+    .app-card img, .btn { transition: none !important; }
   }
 </style>
 </head>
 <body>
+<a id="top"></a>
 
-<!-- ============ NAV ============ -->
+<!-- ===== NAV ===== -->
 <header id="header">
   <div class="wrap nav">
     <a href="#top" class="brand">
-      <img src="logo.jpeg" alt="AVE EcoTech logo" />
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+      AVE EcoTech
     </a>
     <nav class="nav-links" id="navLinks">
+      <a href="#top">Home</a>
       <a href="#about">About</a>
-      <a href="#why">Why Us</a>
-      <a href="#product">EcoTiles</a>
-      <a href="#compare">Compare</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#product">Product</a>
+      <a href="#comparison">Comparison</a>
       <a href="#applications">Applications</a>
       <a href="#contact">Contact</a>
-      <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="btn btn-ghost menu-only">Brochure</a>
-      <a href="#contact" class="btn btn-primary menu-only">Request Samples</a>
+      <a href="#contact" class="btn btn-fill menu-only">Get Started</a>
     </nav>
-    <div class="nav-cta">
-      <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-        Brochure
-      </a>
-      <a href="#contact" class="btn btn-primary">Request Samples</a>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <a href="#contact" class="btn btn-fill">Get Started</a>
+      <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<a id="top"></a>
-
-<!-- ============ HERO ============ -->
+<!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="wrap hero-grid">
+  <div class="wrap hero-grid grid-min">
     <div class="reveal">
-      <span class="eyebrow">🌿 Green Construction Materials</span>
-      <h1>Turning Waste into <span class="accent">Sustainable Infrastructure</span></h1>
-      <p class="lead">AVE EcoTech converts plastic and industrial waste into high-performance, environmentally responsible construction materials — built for a low-carbon future.</p>
-      <div class="hero-badges">
-        <span class="pill"><b>♻</b> 100% Recycled</span>
-        <span class="pill"><b>⊘</b> Zero Cement</span>
-        <span class="pill"><b>✓</b> Zero Waste</span>
-      </div>
+      <span class="eyebrow">The Modern Conservator</span>
+      <h1>Turning Waste into <em>Sustainable Infrastructure.</em></h1>
+      <p class="lead">100% Recycled · Zero Cement · Zero Waste. We are engineering the next generation of building materials from what others discard.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          Request Free Samples
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0l-6-6m6 6l-6 6"/></svg>
-        </a>
-        <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-          View Brochure
-        </a>
+        <a href="#contact" class="btn btn-fill">Request a Sample</a>
+        <a href="#product" class="btn btn-outline">Our Product Range</a>
       </div>
     </div>
-
-    <div class="hero-visual reveal">
-      <div class="hero-card">
-        <div class="leaf-mark">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#2E9E3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
-        </div>
-        <h3>EcoTiles</h3>
-        <p>Premium recycled paver tiles — stronger, lighter and cleaner than conventional cement pavers.</p>
-        <div class="mini-stats">
-          <div class="mini-stat"><b>15<small style="font-size:.7rem"> N/mm²</small></b><span>Compressive strength</span></div>
-          <div class="mini-stat"><b>&lt;1%</b><span>Water absorption</span></div>
-          <div class="mini-stat"><b>~40%</b><span>Lighter than concrete</span></div>
-          <div class="mini-stat"><b>2 yr</b><span>Warranty*</span></div>
-        </div>
-        <div class="swatch-row">
-          <small>Colours</small>
-          <span class="sw" style="background:#C28A8A"></span>
-          <span class="sw" style="background:#C3C7C9"></span>
-          <span class="sw" style="background:#4F8C82"></span>
-          <span class="sw" style="background:#4A3B38"></span>
-          <span class="sw" style="background:#9B958F"></span>
-          <span class="sw" style="background:#34626F"></span>
-        </div>
+    <div class="hero-media reveal">
+      <div class="photo"><img src="images/hero-nature.jpg" alt="A road winding through a lush green forest" loading="eager" /></div>
+      <div class="badge-card">
+        <b>100%</b>
+        <span>Recycled Content</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ STATS ============ -->
-<div class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat reveal"><b>100%</b><span>Recycled Materials</span></div>
-    <div class="stat reveal"><b>~0%</b><span>Production Wastage</span></div>
-    <div class="stat reveal"><b>15 N/mm²</b><span>Compressive Strength</span></div>
-    <div class="stat reveal"><b>&lt;1%</b><span>Water Absorption</span></div>
-  </div>
-</div>
-
-<!-- ============ ABOUT ============ -->
-<section id="about">
-  <div class="wrap about-grid">
-    <div class="about-text reveal">
-      <span class="eyebrow">About Us</span>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); margin:18px 0 20px;">Sustainable materials for a circular economy</h2>
-      <p>AVE EcoTech converts plastic and industrial waste into high-performance and environmentally responsible construction materials.</p>
-      <p>Using waste plastic and discarded foundry silica dust, we engineer durable, lightweight products that pave the way for a circular economy.</p>
-      <p>Aligned with India's Smart City and Net Zero goals, our solutions are sustainable, cost-effective and certification-ready.</p>
-      <p class="closing">Delivering scalable, sustainable infrastructure for a low-carbon future.</p>
-      <div class="goals">
-        <span class="goal-tag">Smart City Aligned</span>
-        <span class="goal-tag">Net Zero Goals</span>
-        <span class="goal-tag">Certification Ready</span>
-        <span class="goal-tag">ESG: GRI · BRSR · CDP</span>
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="wrap about-grid grid-min">
+    <div class="reveal">
+      <span class="eyebrow accent">Our Philosophy</span>
+      <h2 style="margin-top:16px;">Biological Heritage Meets Technical Precision</h2>
+      <p>At AVE EcoTech, we see a world where construction doesn't come at the cost of our planet. By pioneering proprietary chemical-bonding processes, we convert high-density plastic waste and industrial foundry silica dust into structural masterpieces.</p>
+      <p>Our goal is to decouple urban growth from environmental degradation. Every tile we produce diverts kilograms of waste from landfills and avoids the massive carbon footprint associated with traditional cement production.</p>
+      <div class="about-stats">
+        <div class="st"><b>Net Zero</b><span>Aligned Strategy</span></div>
+        <div class="st"><b>Zero</b><span>Wastage Process</span></div>
       </div>
     </div>
-    <div class="about-visual reveal">
-      <div class="circular">
-        <div class="circ-step"><div class="num">1</div><div><h4>Collect Waste</h4><p>Waste plastic and discarded foundry silica dust are recovered from the waste stream.</p></div></div>
-        <div class="circ-step"><div class="num">2</div><div><h4>Engineer Materials</h4><p>Processed into durable, lightweight, cement-free construction products.</p></div></div>
-        <div class="circ-step"><div class="num">3</div><div><h4>Build Sustainably</h4><p>Deployed as EcoTiles across footpaths, parks, parking and more.</p></div></div>
-        <div class="circ-step"><div class="num">4</div><div><h4>Close the Loop</h4><p>A circular economy that cuts carbon and keeps waste out of landfills.</p></div></div>
+    <div class="about-list reveal">
+      <div class="about-item">
+        <svg class="ai-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19l-3-5 3-5"/><path d="M17 5l3 5-3 5"/><path d="M14 4l-4 16"/></svg>
+        <div><h4>100% Recycled Materials</h4><p>Utilizing plastic waste and silica dust to create ultra-durable compounds.</p></div>
+      </div>
+      <div class="about-item">
+        <svg class="ai-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+        <div><h4>40% Lighter than Concrete</h4><p>Reduced structural load and logistical costs without compromising strength.</p></div>
+      </div>
+      <div class="about-item">
+        <svg class="ai-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
+        <div><h4>Smart City Aligned</h4><p>Engineered for modern urban standards and high-performance infrastructure.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ WHY US ============ -->
-<section class="why" id="why">
+<!-- ===== PROPERTIES / BENEFITS ===== -->
+<section class="props" id="benefits">
   <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Why Choose Us</span>
-      <h2>Engineered to outperform concrete</h2>
-      <p>Every EcoTile is built to last — combining recycled inputs with lab-tested performance you can rely on.</p>
+    <div class="head reveal">
+      <span class="eyebrow accent">Performance Specifications</span>
+      <h2>Unrivaled Material Properties</h2>
     </div>
-    <div class="features">
-      <div class="feature reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19l-3-5 3-5"/><path d="M17 5l3 5-3 5"/><path d="M14 4l-4 16"/></svg></div>
-        <h3>100% Recycled</h3><p>Made entirely from waste plastic and foundry silica dust — no virgin cement.</p>
+    <div class="prop-grid reveal">
+      <div class="prop">
+        <svg class="p-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19l-3-5 3-5"/><path d="M17 5l3 5-3 5"/><path d="M14 4l-4 16"/></svg>
+        <h3>100% Recycled</h3><p>Fully circular economy product designed to eliminate waste streams entirely.</p>
       </div>
-      <div class="feature reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5S5 10 5 14a7 7 0 0 0 14 0c0-4-7-11.5-7-11.5z"/></svg></div>
-        <h3>Water Absorption &lt; 1%</h3><p>Near-zero porosity keeps tiles strong, stain-free and weatherproof.</p>
+      <div class="prop">
+        <svg class="p-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5S5 10 5 14a7 7 0 0 0 14 0c0-4-7-11.5-7-11.5z"/></svg>
+        <h3>Water Absorption &lt; 1%</h3><p>Near-zero porosity ensures longevity and prevents internal structural rot.</p>
       </div>
-      <div class="feature reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></div>
-        <h3>Acid &amp; Chemical Resistant</h3><p>Excellent resistance to acids and chemicals where cement pavers fail.</p>
+      <div class="prop">
+        <svg class="p-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg>
+        <h3>Chemical Resistant</h3><p>Resistant to acids, industrial chemicals, and corrosive environments.</p>
       </div>
-      <div class="feature reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
-        <h3>Lightweight</h3><p>≈40% lighter than concrete — easier to handle, ship and install.</p>
+      <div class="prop">
+        <svg class="p-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+        <h3>Lightweight Design</h3><p>40% lighter than traditional cement pavers, easing installation and logistics.</p>
       </div>
-      <div class="feature reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></div>
-        <h3>UV &amp; Weather Resistant</h3><p>Holds colour and integrity under harsh sun, rain and temperature swings.</p>
+      <div class="prop">
+        <svg class="p-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+        <h3>UV &amp; Weather Resistant</h3><p>Engineered to withstand extreme heat and UV exposure without fading or cracking.</p>
       </div>
-      <div class="feature reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
-        <h3>Faster Installation</h3><p>Lower weight and minimal curing mean quicker, lower-cost laying.</p>
-      </div>
-      <div class="feature reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6z"/></svg></div>
-        <h3>2 Years Warranty*</h3><p>Backed by a 2-year product warranty for peace of mind. <em style="font-size:.8em;opacity:.7">*T&amp;C apply</em></p>
-      </div>
-      <div class="feature reveal" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;border:none;">
-        <h3 style="color:#fff;font-family:'Sora';">Test reports available</h3>
-        <p style="color:rgba(255,255,255,.9)">Compressive strength &amp; fire-proof certification on request.</p>
-        <a href="#contact" style="margin-top:14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;color:#fff;">Ask for reports →</a>
+      <div class="prop">
+        <svg class="p-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+        <h3>Faster Installation</h3><p>Precision-molded interlocking system significantly reduces labor time.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PRODUCT / ECOTILES ============ -->
-<section id="product">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Our Product</span>
-      <h2>EcoTiles — recycled paver tiles</h2>
-      <p>High-strength, anti-skid and fire-tested pavers available in six designer colours.</p>
-    </div>
-    <div class="product-grid">
-      <div class="spec-card reveal">
-        <div class="spec-head">
-          <h3>Technical Specifications</h3>
-          <p>Lab-tested performance, test reports available</p>
-        </div>
-        <div class="spec-list">
-          <div class="spec-row"><span>Compressive Strength</span><b>15 N/mm²</b></div>
-          <div class="spec-row"><span>Size</span><b>1 sq. ft. / tile</b></div>
-          <div class="spec-row"><span>Weight</span><b>2.5 kg <small style="font-weight:500;color:var(--muted)">(~40% lighter)</small></b></div>
-          <div class="spec-row"><span>Thickness</span><b>25 mm</b></div>
-          <div class="spec-row"><span>Anti-skid</span><b>Yes</b></div>
-          <div class="spec-row"><span>Fire-Proof</span><b>Test report available</b></div>
-        </div>
+<!-- ===== ECOTILES SERIES ===== -->
+<section class="product" id="product">
+  <div class="wrap product-grid grid-min">
+    <div class="product-media reveal"><img src="images/ecotiles.jpg" alt="AVE EcoTech EcoTiles with circular paver pattern" loading="lazy" /></div>
+    <div class="reveal">
+      <span class="eyebrow accent">Signature Product</span>
+      <h2>EcoTiles Series</h2>
+      <div class="spec-table">
+        <div class="spec-row"><span>Compressive Strength</span><b>15 N/mm²</b></div>
+        <div class="spec-row"><span>Standard Size</span><b>1 sq.ft / tile</b></div>
+        <div class="spec-row"><span>Weight per Unit</span><b>2.5 kg</b></div>
+        <div class="spec-row"><span>Thickness Options</span><b>13mm / 25mm</b></div>
+        <div class="spec-row"><span>Anti-Skid Surface</span><b>Standard</b></div>
+        <div class="spec-row"><span>Wastage Rate</span><b>0%</b></div>
       </div>
-
-      <div class="colours reveal">
-        <h3>Colours available</h3>
-        <p>Choose from a versatile palette to suit any landscape or façade.</p>
-        <div class="swatch-grid">
-          <div class="item"><div class="dot" style="background:#C28A8A"></div><span>Terracotta</span></div>
-          <div class="item"><div class="dot" style="background:#C3C7C9"></div><span>Silver Grey</span></div>
-          <div class="item"><div class="dot" style="background:#4F8C82"></div><span>Teal</span></div>
-          <div class="item"><div class="dot" style="background:#4A3B38"></div><span>Espresso</span></div>
-          <div class="item"><div class="dot" style="background:#9B958F"></div><span>Stone</span></div>
-          <div class="item"><div class="dot" style="background:#34626F"></div><span>Slate Blue</span></div>
-        </div>
-        <div class="tile-note">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v-4m0-4h.01"/><circle cx="12" cy="12" r="9"/></svg>
-          Custom colours and bulk orders available on request.
-        </div>
-      </div>
+      <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="spec-link">
+        Download Full Technical Specs
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============ COMPARE ============ -->
-<section class="compare" id="compare">
+<!-- ===== COMPARISON ===== -->
+<section class="compare" id="comparison">
   <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Concrete vs AVE EcoTech</span>
-      <h2>The smarter, greener choice</h2>
-      <p>See how EcoTiles compare with conventional cement pavers across the metrics that matter.</p>
+    <div class="head reveal">
+      <span class="eyebrow accent">The Difference</span>
+      <h2>Engineering Better Outcomes</h2>
+      <p>A head-to-head comparison of material performance.</p>
     </div>
-    <div class="table-card reveal">
-      <div class="table-scroll">
-      <table>
+    <div class="table-scroll reveal">
+      <table class="ctable">
         <thead>
-          <tr><th>Parameter</th><th class="them">Cement Paver</th><th class="us">AVE EcoTiles</th></tr>
+          <tr><th>Parameter</th><th>Cement Paver</th><th class="us">EcoTiles</th></tr>
         </thead>
         <tbody>
-          <tr><td class="param">Strength</td><td class="them">5–6 N/m²</td><td class="us">15 N/m²</td></tr>
-          <tr><td class="param">Wastage</td><td class="them">≥ 10%</td><td class="us">~0%</td></tr>
-          <tr><td class="param">Weight</td><td class="them">3–3.5 kg</td><td class="us">2.5 kg</td></tr>
-          <tr><td class="param">Installation Time</td><td class="them">High</td><td class="us">Low (less weight)</td></tr>
-          <tr><td class="param">Water Curing</td><td class="them">Heavy requirement</td><td class="us">Minimum</td></tr>
-          <tr><td class="param">Water Absorption</td><td class="them">5–8%</td><td class="us">&lt; 1%</td></tr>
-          <tr><td class="param">Acid Resistance</td><td class="them">Poor</td><td class="us">Excellent</td></tr>
-          <tr><td class="param">Green Credits</td><td class="them">N/A</td><td class="us">Eligible</td></tr>
-          <tr><td class="param">ESG Reporting</td><td class="them">Not supported</td><td class="us">Eligible (GRI, BRSR, CDP)</td></tr>
+          <tr><td class="param">Material Weight</td><td class="them">~4.5 kg</td><td class="us">~2.5 kg (Lighter)</td></tr>
+          <tr><td class="param">Water Curing</td><td class="them">Required (21 Days)</td><td class="us">Not Required</td></tr>
+          <tr><td class="param">Water Absorption</td><td class="them">&gt;10% (High)</td><td class="us">&lt;1% (Minimal)</td></tr>
+          <tr><td class="param">Acid Resistance</td><td class="them">Very Low</td><td class="us">High Resistance</td></tr>
+          <tr><td class="param">Wastage during Install</td><td class="them">8% to 12%</td><td class="us">0%</td></tr>
+          <tr><td class="param">Green Credits</td><td class="them">Minimal</td><td class="us">High (100% Recycled)</td></tr>
+          <tr><td class="param">ESG Reporting</td><td class="them">Complex</td><td class="us">Simple &amp; Verified</td></tr>
         </tbody>
       </table>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ APPLICATIONS ============ -->
-<section id="applications">
+<!-- ===== APPLICATIONS ===== -->
+<section class="apps" id="applications">
   <div class="wrap">
-    <div class="section-head center reveal">
-      <span class="eyebrow">Applications &amp; Use Cases</span>
-      <h2>Built for every outdoor surface</h2>
-      <p>From public infrastructure to private spaces, EcoTiles perform where it counts.</p>
+    <div class="apps-head reveal grid-min">
+      <div>
+        <span class="eyebrow accent">Versatility by Design</span>
+        <h2>Commercial &amp; Residential Applications</h2>
+      </div>
+      <p>EcoTiles are engineered for diverse environments, providing structural stability and aesthetic appeal wherever they are placed.</p>
     </div>
-    <div class="apps">
-      <div class="app reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
-        <h3>Footpaths</h3><p>Durable, anti-skid walkways for streets and campuses.</p>
-      </div>
-      <div class="app reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
-        <h3>Parks</h3><p>Eco-friendly paving for gardens and public green spaces.</p>
-      </div>
-      <div class="app reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg></div>
-        <h3>Parking</h3><p>High-load surfaces that resist oil, acid and heavy traffic.</p>
-      </div>
-      <div class="app reveal">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-5h6v5"/></svg></div>
-        <h3>Verandahs</h3><p>Stylish, low-maintenance flooring for homes and patios.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CTA / CONTACT ============ -->
-<section class="cta-band" id="contact">
-  <div class="wrap">
-    <div class="cta-card reveal">
-      <div class="cta-grid">
-        <div>
-          <h2>Request free samples today</h2>
-          <p>Let's build a greener future together. Reach out for samples, test reports, pricing or a partnership conversation.</p>
-          <div class="cta-actions">
-            <a href="mailto:aveecotech@gmail.com?subject=Sample%20Request%20—%20AVE%20EcoTech&body=Hi%20AVE%20EcoTech%2C%0A%0AI'd%20like%20to%20request%20samples%2Fpricing%20for%20EcoTiles." class="btn btn-white">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              Email Us
-            </a>
-            <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="btn btn-outline-w">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-              Download Brochure
-            </a>
-          </div>
+    <div class="apps-grid grid-min reveal">
+      <div class="app-card">
+        <img src="images/app-footpath.jpg" alt="EcoTiles footpath" loading="lazy" />
+        <div class="label">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-9 4 4 4-9 4 14"/></svg>
+          <h3>Footpaths</h3><p>Durable public walkways</p>
         </div>
-        <div class="contact-box">
-          <h4>Get in touch</h4>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            <a href="mailto:aveecotech@gmail.com">aveecotech@gmail.com</a>
-          </div>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <a href="tel:+918329434631">+91 83294 34631</a>
-          </div>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <a href="tel:+919890584888">+91 98905 84888</a>
-          </div>
+      </div>
+      <div class="app-card">
+        <img src="images/app-parks.jpg" alt="EcoTiles in a park" loading="lazy" />
+        <div class="label">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/></svg>
+          <h3>Parks</h3><p>Green public spaces</p>
+        </div>
+      </div>
+      <div class="app-card">
+        <img src="images/app-parking.jpg" alt="EcoTiles parking floor" loading="lazy" />
+        <div class="label">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+          <h3>Parking</h3><p>High-load surfaces</p>
+        </div>
+      </div>
+      <div class="app-card">
+        <img src="images/app-verandah.jpg" alt="EcoTiles verandah flooring" loading="lazy" />
+        <div class="label">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+          <h3>Verandah</h3><p>Elegant home flooring</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ===== CTA / CONTACT ===== -->
+<section class="cta" id="contact">
+  <div class="wrap cta-grid grid-min">
+    <div class="reveal">
+      <h2>Request Samples or Get a Quote</h2>
+      <p class="lead">Ready to transition your next project to sustainable infrastructure? Our experts are here to help with technical queries and bulk pricing.</p>
+      <div class="cta-contact">
+        <div class="row">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <div><small>Email Us</small><a href="mailto:aveecotech@gmail.com">aveecotech@gmail.com</a></div>
+        </div>
+        <div class="row">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div><small>Call Us</small><a href="tel:+918329434631">+91 83294 34631</a> &nbsp;·&nbsp; <a href="tel:+919890584888">+91 98905 84888</a></div>
+        </div>
+        <div class="row">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><small>Regional Office</small><span class="v">Pune, Maharashtra, India</span></div>
+        </div>
+      </div>
+    </div>
+    <form class="form reveal" id="inquiryForm">
+      <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" placeholder="Your name" required /></div>
+      <div class="field"><label for="org">Organization</label><input id="org" name="org" type="text" placeholder="Company / firm" /></div>
+      <div class="field"><label for="brief">Project Brief</label><textarea id="brief" name="brief" placeholder="Tell us about your project, quantities, location…"></textarea></div>
+      <button type="submit" class="btn btn-cream">Send Inquiry</button>
+      <p class="form-note">Opens your email app with the details pre-filled.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
+    <div class="foot-grid grid-min">
       <div class="foot-col">
-        <div class="foot-brand"><img src="logo.jpeg" alt="AVE EcoTech" /></div>
-        <p>AVE EcoTech Pvt Ltd — turning waste into sustainable infrastructure with 100% recycled, zero-cement construction materials.</p>
-      </div>
-      <div class="foot-col">
-        <h5>Explore</h5>
-        <div class="foot-links">
-          <a href="#about">About Us</a>
-          <a href="#why">Why Us</a>
-          <a href="#product">EcoTiles</a>
-          <a href="#compare">Comparison</a>
-          <a href="#applications">Applications</a>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          AVE EcoTech
+        </div>
+        <p>Engineering a zero-waste future through advanced material science and industrial upcycling.</p>
+        <div class="socials">
+          <a href="mailto:aveecotech@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a href="tel:+918329434631" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
         </div>
       </div>
       <div class="foot-col">
-        <h5>Contact</h5>
-        <div class="foot-links">
-          <a href="mailto:aveecotech@gmail.com">aveecotech@gmail.com</a>
-          <a href="tel:+918329434631">+91 83294 34631</a>
-          <a href="tel:+919890584888">+91 98905 84888</a>
-          <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener">Download Brochure (PDF)</a>
-        </div>
+        <h5>Navigation</h5>
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#product">EcoTiles</a>
+      </div>
+      <div class="foot-col">
+        <h5>Resources</h5>
+        <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener">Brochure (PDF)</a>
+        <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener">Sustainability Report</a>
+        <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener">Certification</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact Information</h5>
+        <a href="mailto:aveecotech@gmail.com">aveecotech@gmail.com</a>
+        <a href="tel:+918329434631">+91 83294 34631</a>
+        <a href="tel:+919890584888">+91 98905 84888</a>
+        <span class="static">Regional Office: Pune, MH</span>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="year"></span> AVE EcoTech Pvt Ltd. All rights reserved.</span>
-      <span>100% Recycled · Zero Cement · Zero Waste</span>
+      <span>© <span id="year"></span> AVE EcoTech Pvt Ltd · All rights reserved · The Modern Conservator.</span>
+      <a href="#top">Back to Top ↑</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // Year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Sticky header shadow
+  // sticky header
   const header = document.getElementById('header');
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Mobile menu
+  // mobile menu
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // Reveal on scroll
+  // reveal on scroll
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = (Math.min(i % 4, 3) * 0.07) + 's';
-    io.observe(el);
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // inquiry form -> mailto
+  document.getElementById('inquiryForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = encodeURIComponent(document.getElementById('name').value || '');
+    const org = encodeURIComponent(document.getElementById('org').value || '');
+    const brief = encodeURIComponent(document.getElementById('brief').value || '');
+    const body = `Name: ${name}%0AOrganization: ${org}%0A%0AProject Brief:%0A${brief}`;
+    window.location.href = `mailto:aveecotech@gmail.com?subject=${encodeURIComponent('Sample / Quote Request — AVE EcoTech')}&body=${body}`;
   });
 </script>
 </body>
