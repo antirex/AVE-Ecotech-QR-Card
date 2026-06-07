@@ -1,20 +1,23 @@
-# AVE-Ecotech-QR-Card
-GitHub pages: `https://antirex.github.io/AVE-Ecotech-QR-Card/`
-Redirect page for AVE EcoTech's constant QR code.
+# AVE EcoTech — Website
 
-## How it works
-- The QR code always points to this GitHub Pages URL
-- `index.html` redirects visitors to the current destination link
-- To change where the QR code goes, just update the URL in `index.html` and commit — no need to reprint the QR code!
+Live site (GitHub Pages): `https://antirex.github.io/AVE-Ecotech-QR-Card/`
 
-## Current redirect target
-https://drive.google.com/file/d/1unIc7dkPh9T7by14LClgzcRjybDvYndx/view?usp=sharing
+A single-page marketing website for **AVE EcoTech Pvt Ltd** — turning waste into sustainable infrastructure with 100% recycled, zero-cement construction materials (EcoTiles).
 
-## Setup
-1. Enable GitHub Pages: **Settings → Pages → Source: Deploy from branch → Branch: main → / (root) → Save**
-2. Your redirect URL will be: `https://antirex.github.io/AVE-Ecotech-QR-Card/`
-3. Generate a QR code pointing to that URL — it will never need to change!
+## What's here
+- `index.html` — the full website (self-contained: HTML + CSS + JS, no build step)
+- `AVE-EcoTech-Deck.pdf` — company brochure, linked from the site's "Brochure / Download" buttons
+- `logo.jpeg` — AVE EcoTech logo used in the nav and footer
+- `ave_ecotech_qr.png` — constant QR code (points to the GitHub Pages URL above)
 
+## How the QR code works
+The printed QR code always points to the GitHub Pages URL. Visitors now land directly on the website. To change what visitors see, just edit `index.html` and commit — the QR code never needs to be reprinted.
 
-## QR code: (as of 16/03/2026)
+## Sections
+Hero · About / circular economy · Why Us · EcoTiles specs & colours · Concrete vs EcoTech comparison · Applications · Contact
+
+## Setup (GitHub Pages)
+**Settings → Pages → Source: Deploy from branch → Branch: `main` → `/` (root) → Save**
+
+## QR code (as of 16/03/2026)
 ![AVE EcoTech QR Code](ave_ecotech_qr.png)
