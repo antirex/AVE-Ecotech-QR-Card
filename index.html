@@ -118,6 +118,9 @@
   .hero h1 em { font-style: italic; font-weight: 400; display: block; }
   .hero .lead { max-width: 460px; font-size: 1.08rem; }
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .hero-brochure { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-size: .86rem; font-weight: 600; color: var(--ink-soft); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color .18s, border-color .18s; }
+  .hero-brochure svg { width: 15px; height: 15px; }
+  .hero-brochure:hover { color: var(--terracotta); border-color: var(--terracotta); }
 
   .hero-media { position: relative; }
   .hero-media .photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 40px 80px -40px rgba(28,42,32,.5); aspect-ratio: 4/4.4; }
@@ -171,6 +174,7 @@
   .spec-row span { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .spec-row b { font-family: var(--serif); font-weight: 500; font-size: 1.18rem; color: var(--ink); }
   .spec-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: var(--terracotta); font-weight: 600; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; border-bottom: 1px solid var(--terracotta); padding-bottom: 3px; transition: gap .2s; }
+  .spec-link svg { width: 15px; height: 15px; flex: none; }
   .spec-link:hover { gap: 13px; }
 
   /* ===== COMPARISON ===== */
@@ -230,7 +234,11 @@
   .field input:focus, .field textarea:focus { outline: none; border-color: var(--sage); background: rgba(255,255,255,.1); }
   .field textarea { resize: vertical; min-height: 96px; }
   .form .btn { width: 100%; }
+  .form .btn[disabled] { opacity: .6; cursor: default; }
   .form-note { font-size: .78rem; color: rgba(237,234,224,.55); margin-top: 14px; text-align: center; }
+  .form-success { display: flex; gap: 12px; align-items: center; justify-content: center; text-align: left; padding: 20px; margin-top: 18px; background: rgba(219,227,206,.14); border: 1px solid rgba(219,227,206,.3); border-radius: 14px; color: #EDEAE0; }
+  .form-success svg { width: 26px; height: 26px; color: var(--sage); flex: none; }
+  .form-success p { font-size: .92rem; line-height: 1.45; }
 
   /* ===== FOOTER ===== */
   footer { background: var(--green-darker); color: #B9C4B6; padding: 76px 0 30px; }
@@ -355,6 +363,10 @@
         <a href="#contact" class="btn btn-fill">Request a Sample</a>
         <a href="#product" class="btn btn-outline">Our Product Range</a>
       </div>
+      <a href="AVE-EcoTech-Deck.pdf" target="_blank" rel="noopener" class="hero-brochure">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        Download Brochure (PDF)
+      </a>
     </div>
     <div class="hero-media reveal">
       <div class="photo"><img src="images/hero-nature.jpg" alt="A road winding through a lush green forest" loading="eager" /></div>
@@ -550,12 +562,21 @@
         Download Brochure (PDF)
       </a>
     </div>
-    <form class="form reveal" id="inquiryForm">
+    <form class="form reveal" id="inquiryForm" action="https://formsubmit.co/aveecotech@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry — AVE EcoTech website" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" placeholder="Your name" required /></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@company.com" required /></div>
       <div class="field"><label for="org">Organization</label><input id="org" name="org" type="text" placeholder="Company / firm" /></div>
       <div class="field"><label for="brief">Project Brief</label><textarea id="brief" name="brief" placeholder="Tell us about your project, quantities, location…"></textarea></div>
-      <button type="submit" class="btn btn-cream">Send Inquiry</button>
-      <p class="form-note">Opens your email app with the details pre-filled.</p>
+      <button type="submit" class="btn btn-cream" id="submitBtn">Send Inquiry</button>
+      <p class="form-note" id="formNote">We'll get back to you within 1–2 business days.</p>
+      <div class="form-success" id="formSuccess" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <p><b>Thank you!</b><br>Your inquiry has been sent. We'll be in touch shortly.</p>
+      </div>
     </form>
   </div>
 </section>
@@ -623,14 +644,37 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-  // inquiry form -> mailto
-  document.getElementById('inquiryForm').addEventListener('submit', (e) => {
+  // inquiry form -> FormSubmit (AJAX) with graceful fallbacks
+  const form = document.getElementById('inquiryForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formNote = document.getElementById('formNote');
+  const formSuccess = document.getElementById('formSuccess');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = encodeURIComponent(document.getElementById('name').value || '');
-    const org = encodeURIComponent(document.getElementById('org').value || '');
-    const brief = encodeURIComponent(document.getElementById('brief').value || '');
-    const body = `Name: ${name}%0AOrganization: ${org}%0A%0AProject Brief:%0A${brief}`;
-    window.location.href = `mailto:aveecotech@gmail.com?subject=${encodeURIComponent('Sample / Quote Request — AVE EcoTech')}&body=${body}`;
+    if (!form.reportValidity()) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/aveecotech@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (!res.ok) throw new Error('bad status');
+      // success
+      submitBtn.style.display = 'none';
+      formNote.style.display = 'none';
+      formSuccess.hidden = false;
+      form.reset();
+    } catch (err) {
+      // fallback: open email client with details pre-filled
+      const v = (id) => encodeURIComponent(document.getElementById(id).value || '');
+      const body = `Name: ${v('name')}%0AEmail: ${v('email')}%0AOrganization: ${v('org')}%0A%0AProject Brief:%0A${v('brief')}`;
+      window.location.href = `mailto:aveecotech@gmail.com?subject=${encodeURIComponent('Inquiry — AVE EcoTech')}&body=${body}`;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Inquiry';
+      formNote.textContent = 'Opening your email app… if nothing happens, write to aveecotech@gmail.com.';
+    }
   });
 </script>
 </body>
