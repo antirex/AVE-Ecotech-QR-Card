@@ -34,7 +34,7 @@ Hero · About (Biological Heritage Meets Technical Precision) · Material Proper
 **Settings → Pages → Source: Deploy from branch → Branch: `main` → `/` (root) → Save**
 
 ## QR code for website (as of 16/03/2026)
-![AVE EcoTech QR Code](ave_ecotech_qr.png)
+<img src="ave_ecotech_qr.png" alt="Website QR Code" width="250">
 
 ## QR code for brochure (as of 04/08/2026)
 <img src="product_brochure_QR.png" alt="Product Brochure QR Code" width="250">
