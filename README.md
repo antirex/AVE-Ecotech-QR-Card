@@ -16,6 +16,7 @@ An editorial design — Fraunces serif display type, a warm cream/sage palette w
 - `AVE-EcoTech-Deck.pdf` — company brochure, linked from the hero, EcoTiles section, contact section, and footer
 - `logo.jpeg` — original AVE EcoTech logo (brand asset)
 - `ave_ecotech_qr.png` — constant QR code (points to the GitHub Pages URL above)
+- `product_brochure_QR.png` — QR code pointing to the product brochure (Google Drive)
 
 ## Features
 - Light / dark theme toggle (remembers choice, respects OS preference)
@@ -32,5 +33,9 @@ Hero · About (Biological Heritage Meets Technical Precision) · Material Proper
 ## Setup (GitHub Pages)
 **Settings → Pages → Source: Deploy from branch → Branch: `main` → `/` (root) → Save**
 
-## QR code (as of 16/03/2026)
+## QR code for website (as of 16/03/2026)
 ![AVE EcoTech QR Code](ave_ecotech_qr.png)
+
+## QR code for brochure (as of 04/08/2026)
+<img src="product_brochure_QR.png" alt="Product Brochure QR Code" width="250">
+
