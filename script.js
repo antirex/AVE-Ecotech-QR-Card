@@ -1,8 +1,23 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+  // intro loader (once per session, with safety auto-hide) — runs first so nothing below can trap the page
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const loader = document.getElementById('loader');
+  if (loader) {
+    const hide = () => loader.classList.add('done');
+    let seen = false;
+    try { seen = !!sessionStorage.getItem('introSeen'); sessionStorage.setItem('introSeen', '1'); } catch (e) {}
+    if (seen || prefersReduced) {
+      loader.style.transition = 'none';
+      hide();
+    } else {
+      window.addEventListener('load', () => setTimeout(hide, 1000));
+    }
+    setTimeout(hide, 4000); // never trap the page
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
 
   // theme toggle (initial theme already applied in <head> to avoid flash)
   const themeToggle = document.getElementById('themeToggle');
-  const themeMeta = document.querySelector('meta[name="theme-color"]');
   themeToggle.addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
@@ -17,8 +32,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
   // mobile menu
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
-  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+  const setMenu = (open) => { navLinks.classList.toggle('open', open); burger.setAttribute('aria-expanded', String(open)); };
+  burger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
   // reveal on scroll
   const io = new IntersectionObserver((entries) => {
@@ -51,59 +67,87 @@ document.getElementById('year').textContent = new Date().getFullYear();
     } catch (err) {
       // fallback: open email client with details pre-filled
       const v = (id) => encodeURIComponent(document.getElementById(id).value || '');
-      const body = `Name: ${v('name')}%0AEmail: ${v('email')}%0APhone: ${v('phone')}%0AOrganization: ${v('org')}%0A%0AProject Brief:%0A${v('brief')}`;
+      const body = `Name: ${v('name')}%0AEmail: ${v('email')}%0APhone: ${v('phone')}%0AOrganisation: ${v('org')}%0A%0AArea, finish and site:%0A${v('brief')}`;
       window.location.href = `mailto:aveecotech@gmail.com?subject=${encodeURIComponent('Inquiry — AVE EcoTech')}&body=${body}`;
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Inquiry';
+      submitBtn.textContent = 'Send inquiry';
       formNote.textContent = 'Opening your email app… if nothing happens, write to aveecotech@gmail.com.';
     }
   });
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // colour picker: click a swatch, the tile photo changes
+  const tileImg = document.getElementById('tileImg');
+  const tileNote = document.getElementById('tileNote');
+  const colourName = document.getElementById('colourName');
+  const swatches = Array.from(document.querySelectorAll('.swatch'));
+  swatches.forEach((sw) => { const pre = new Image(); pre.src = sw.dataset.img; }); // preload so the swap is instant
+  const pickColour = (sw) => {
+    if (sw.classList.contains('is-on')) return;
+    swatches.forEach((o) => { const on = o === sw; o.classList.toggle('is-on', on); o.setAttribute('aria-checked', String(on)); });
+    colourName.textContent = sw.dataset.name;
+    tileNote.textContent = sw.dataset.note;
+    tileImg.classList.add('is-swapping');
+    setTimeout(() => {
+      tileImg.src = sw.dataset.img;
+      tileImg.alt = 'EcoTiles — ' + sw.dataset.name;
+      tileImg.classList.remove('is-swapping');
+    }, 180);
+  };
+  swatches.forEach((sw, i) => {
+    sw.addEventListener('click', () => pickColour(sw));
+    sw.addEventListener('keydown', (e) => {
+      const step = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      const next = swatches[(i + step + swatches.length) % swatches.length];
+      next.focus(); pickColour(next);
+    });
+  });
 
-  // intro loader (once per session, with safety auto-hide)
-  const loader = document.getElementById('loader');
-  if (loader) {
-    const hide = () => loader.classList.add('done');
-    let seen = false;
-    try { seen = !!sessionStorage.getItem('introSeen'); sessionStorage.setItem('introSeen', '1'); } catch (e) {}
-    if (seen || prefersReduced) {
-      loader.style.transition = 'none';
-      hide();
-    } else {
-      window.addEventListener('load', () => setTimeout(hide, 1150));
-    }
-    setTimeout(hide, 4000); // never trap the page
+  // brochure: ask who is downloading (lead), then hand over the PDF
+  const BROCHURE = 'AVE-EcoTech-Brochure.pdf';
+  const dialog = document.getElementById('brochureDialog');
+  const bForm = document.getElementById('brochureForm');
+  const bSubmit = document.getElementById('brochureSubmit');
+  const bNote = document.getElementById('brochureNote');
+  const startDownload = () => {
+    const a = document.createElement('a');
+    a.href = BROCHURE; a.download = 'AVE-EcoTech-Brochure.pdf'; // same-origin download: no new tab, so no popup blocker
+    document.body.appendChild(a); a.click(); a.remove();
+  };
+  const alreadyGiven = () => { try { return !!localStorage.getItem('brochureLead'); } catch (e) { return false; } };
+  document.querySelectorAll('[data-brochure]').forEach((el) => el.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (alreadyGiven() || !dialog || typeof dialog.showModal !== 'function') { startDownload(); return; }
+    dialog.showModal();
+  }));
+  if (dialog) {
+    document.getElementById('brochureClose').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); }); // click on the backdrop
+    bForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!bForm.reportValidity()) return;
+      bSubmit.disabled = true;
+      bSubmit.textContent = 'Preparing…';
+      try {
+        await fetch('https://formsubmit.co/ajax/aveecotech@gmail.com', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(bForm) });
+      } catch (err) { /* never hold the brochure hostage to a network error */ }
+      try { localStorage.setItem('brochureLead', '1'); } catch (err) {}
+      startDownload();
+      bSubmit.style.display = 'none';
+      bNote.innerHTML = 'Thank you — your download has started. If it has not, <a href="' + BROCHURE + '" target="_blank" rel="noopener">open the brochure here</a>.';
+    });
   }
 
-  // animated counters
-  const animateCount = (el) => {
-    const target = parseFloat(el.dataset.target) || 0;
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    if (prefersReduced || target === 0) { el.textContent = prefix + target + suffix; return; }
-    const dur = 1500, start = performance.now();
-    const tick = (now) => {
-      const p = Math.min(1, (now - start) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(target * eased) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-    // safety: guarantee the final value even if the frame loop is interrupted
-    setTimeout(() => { el.textContent = prefix + target + suffix; }, dur + 400);
-  };
-  const countIO = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) { animateCount(e.target); countIO.unobserve(e.target); } });
-  }, { threshold: 0.4 });
-  document.querySelectorAll('.count').forEach((c) => countIO.observe(c));
-
-  // hero parallax
-  if (!prefersReduced) {
-    const heroMedia = document.querySelector('.hero-media');
-    if (heroMedia) {
-      let ticking = false;
-      const apply = () => { const y = window.scrollY; if (y < 1000) heroMedia.style.transform = `translateY(${y * 0.06}px)`; ticking = false; };
-      window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(apply); ticking = true; } }, { passive: true });
-    }
+  // hero bond: once the courses are laid, the clay brick moves to a new place every few seconds
+  const bricks = Array.from(document.querySelectorAll('.bond .brick'));
+  if (bricks.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(() => {
+      if (document.hidden) return;
+      const current = bricks.findIndex((b) => b.classList.contains('is-clay'));
+      let next = current;
+      while (next === current) next = Math.floor(Math.random() * bricks.length);
+      bricks[current].classList.remove('is-clay');
+      bricks[next].classList.add('is-clay');
+    }, 3200);
   }
