@@ -35,7 +35,7 @@ Built to the **AVE EcoTech Brand Guidelines (Edition 1.0, 2026)** with content f
 The printed QR code always points to the GitHub Pages URL. Visitors now land directly on the website. To change what visitors see, just edit `index.html` and commit — the QR code never needs to be reprinted.
 
 ## Sections
-Hero (tagline, animated brick bond, four key figures) · 01 Why it matters (the planet, in sourced numbers) · 02 The product (colour picker, brochure CTA) · 03 Proof (what buyers say, trusted by; founders block is in the HTML, commented out until names/photos arrive) · 04 Who it is for (builders · green architects · government) + Green credits (IGBC · LEED · GRIHA · GEM) · 05 Where it is used · 06 About us (vision, mission, four commitments) · 07 FAQ (accordion, also published as FAQPage structured data) · 08 Next step (contact / inquiry form)
+Hero (tagline, animated brick bond, four key figures) · 01 Why it matters (the planet, in sourced numbers) · 02 The product (colour picker, brochure CTA) · 03 Proof (three buyer quotes, trusted by; founders block is in the HTML, commented out until names/photos arrive) · 04 Who it is for (builders · green architects · government) + Green credits (IGBC · LEED · GRIHA · GEM) · 05 Where it is used · 06 About us (vision, mission, four commitments) · 07 FAQ (accordion, also published as FAQPage structured data) · 08 Next step (contact / inquiry form)
 
 The site is written for the buyer — builders, green architects, public bodies — not as a product sheet. It never names the raw-material recipe; it says "plastic and industrial waste". It does not name the testing laboratory either. Copy is kept short on purpose — detail lives in the gated brochure.
 
