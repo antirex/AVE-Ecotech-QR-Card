@@ -28,6 +28,7 @@ Built to the **AVE EcoTech Brand Guidelines (Edition 1.0, 2026)** with content f
 - Responsive across phones/tablets/laptops/desktops (zero horizontal overflow)
 - Contact form and brochure lead form both deliver to `aveecotech@gmail.com` via FormSubmit
 - Colour picker: click a swatch and the tile photo changes
+- WhatsApp (business link) in the contact section, footer and a floating button; Instagram (@ave.ecotech) in the contact section and footer
 - Verified with a headless-Chrome sweep: no horizontal overflow at any width from 320px to 3840px, light and dark
 - SEO: Open Graph + Twitter cards + JSON-LD structured data + sitemap
 
@@ -35,7 +36,7 @@ Built to the **AVE EcoTech Brand Guidelines (Edition 1.0, 2026)** with content f
 The printed QR code always points to the GitHub Pages URL. Visitors now land directly on the website. To change what visitors see, just edit `index.html` and commit — the QR code never needs to be reprinted.
 
 ## Sections
-Hero (tagline, animated brick bond, four key figures) · 01 Why it matters (the planet, in sourced numbers) · 02 The product (colour picker, brochure CTA) · 03 Proof (three buyer quotes, trusted by; founders block is in the HTML, commented out until names/photos arrive) · 04 Who it is for (builders · green architects · government) + Green credits (IGBC · LEED · GRIHA · GEM) · 05 Where it is used · 06 About us (vision, mission, four commitments) · 07 FAQ (accordion, also published as FAQPage structured data) · 08 Next step (contact / inquiry form)
+Hero (tagline, animated brick bond, four key figures) · Why it matters (the planet, in sourced numbers) · The product (colour picker, brochure CTA) · Proof (four buyer testimonials, trusted by; founders block is in the HTML, commented out until names/photos arrive) · Who it is for (tabbed carousel: builders · architects · government, each led by three figures; autoplays, pauses on hover, stops on interaction) + Green credits (IGBC · LEED · GRIHA · GEM) · Where it is used (swipeable carousel; real install photos first, tagged "On site") · About us · FAQ (also FAQPage structured data) · Next step (contact form, WhatsApp, Instagram). Section labels are unnumbered.
 
 The site is written for the buyer — builders, green architects, public bodies — not as a product sheet. It never names the raw-material recipe; it says "plastic and industrial waste". It does not name the testing laboratory either. Copy is kept short on purpose — detail lives in the gated brochure.
 
