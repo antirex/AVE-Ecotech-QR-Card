@@ -32,6 +32,14 @@ Built to the **AVE EcoTech Brand Guidelines (Edition 1.0, 2026)** with content f
 - Verified with a headless-Chrome sweep: no horizontal overflow at any width from 320px to 3840px, light and dark
 - SEO: Open Graph + Twitter cards + JSON-LD structured data + sitemap
 
+## Performance
+A first visit downloads about 270 KB (was ~1.1–1.25 MB) with no third-party requests.
+- **Images**: every photo ships as AVIF + WebP with a JPEG/PNG fallback inside `<picture>`, sized for display at 2× and pre-cropped to the shape shown. Re-encode new photos the same way (Pillow: `im.save(x.avif, quality=58)`, `im.save(x.webp, quality=74, method=6)`) rather than adding raw camera JPEGs.
+- **Fonts**: self-hosted in `fonts/` (latin subset; Space Grotesk and IBM Plex Sans are variable, one file each). The three first-screen fonts are preloaded. `ibm-plex-sans-devanagari-hi.woff2` holds only the glyphs of the footer's Hindi line — if that line changes, regenerate it from Google Fonts with the `text=` parameter.
+- **Intro loader**: first visit per tab only, timed in CSS (gone by ~0.9 s); it never waits for downloads.
+- **Colour picker**: the other tile colours are fetched only when the picker scrolls into view or a swatch is touched.
+- **Brochure PDF**: photos recompressed (4.8 MB → 1.8 MB); pages render the same.
+
 ## How the QR code works
 The printed QR code always points to the GitHub Pages URL. Visitors now land directly on the website. To change what visitors see, just edit `index.html` and commit — the QR code never needs to be reprinted.
 

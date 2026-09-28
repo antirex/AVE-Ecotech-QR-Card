@@ -1,19 +1,3 @@
-  // intro loader (once per session, with safety auto-hide) — runs first so nothing below can trap the page
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const loader = document.getElementById('loader');
-  if (loader) {
-    const hide = () => loader.classList.add('done');
-    let seen = false;
-    try { seen = !!sessionStorage.getItem('introSeen'); sessionStorage.setItem('introSeen', '1'); } catch (e) {}
-    if (seen || prefersReduced) {
-      loader.style.transition = 'none';
-      hide();
-    } else {
-      window.addEventListener('load', () => setTimeout(hide, 1000));
-    }
-    setTimeout(hide, 4000); // never trap the page
-  }
-
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // theme toggle (initial theme already applied in <head> to avoid flash)
@@ -164,7 +148,19 @@
   const tileNote = document.getElementById('tileNote');
   const colourName = document.getElementById('colourName');
   const swatches = Array.from(document.querySelectorAll('.swatch'));
-  swatches.forEach((sw) => { const pre = new Image(); pre.src = sw.dataset.img; }); // preload so the swap is instant
+  const tileSources = Array.from(tileImg.parentElement.querySelectorAll('source'));
+  // use whichever format the browser picked for the first photo (avif / webp / jpg)
+  const fmt = () => ((tileImg.currentSrc || tileImg.src).match(/\.(avif|webp|jpg)(\?|$)/) || [, 'jpg'])[1];
+  // warm the other colours only when someone is about to use the picker, not on page load
+  let warmed = false;
+  const warm = () => { if (warmed) return; warmed = true; swatches.forEach((sw) => { const pre = new Image(); pre.src = sw.dataset.img + '.' + fmt(); }); };
+  const picker = document.querySelector('.picker');
+  if (picker && 'IntersectionObserver' in window) {
+    const pio = new IntersectionObserver(([e]) => { if (e.isIntersecting && tileImg.complete) { warm(); pio.disconnect(); } }, { rootMargin: '150px' });
+    tileImg.addEventListener('load', () => pio.observe(picker), { once: true });
+    if (tileImg.complete && tileImg.naturalWidth) pio.observe(picker);
+  }
+  swatches.forEach((sw) => { sw.addEventListener('pointerenter', warm, { once: true }); sw.addEventListener('focus', warm, { once: true }); });
   const pickColour = (sw) => {
     if (sw.classList.contains('is-on')) return;
     swatches.forEach((o) => { const on = o === sw; o.classList.toggle('is-on', on); o.setAttribute('aria-checked', String(on)); });
@@ -172,7 +168,8 @@
     tileNote.textContent = sw.dataset.note;
     tileImg.classList.add('is-swapping');
     setTimeout(() => {
-      tileImg.src = sw.dataset.img;
+      tileSources.forEach((s) => { s.srcset = sw.dataset.img + '.' + s.type.split('/')[1]; });
+      tileImg.src = sw.dataset.img + '.jpg';
       tileImg.alt = 'EcoTiles — ' + sw.dataset.name;
       tileImg.classList.remove('is-swapping');
     }, 180);

@@ -1,6 +1,13 @@
 /* AVE EcoTech — visual identity system, edition 1.0
    Deep Forest carries the brand. Kiln Clay is an accent only:
    never a background, never body text, never type on a light ground. */
+/* Fonts are self-hosted (no third-party round trips). Space Grotesk and IBM Plex Sans are variable fonts:
+   one file covers every weight used. Plex Sans Devanagari is cut to the glyphs of the footer line. */
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-mono-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Sans'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(fonts/ibm-plex-sans-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(fonts/space-grotesk-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'IBM Plex Sans Devanagari'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-sans-devanagari-hi.woff2) format('woff2'); unicode-range: U+20, U+917, U+923-924, U+928, U+92e, U+930, U+938-939, U+93e-940, U+94d; }
+
 :root {
   /* primary palette */
   --forest: #12322A;
@@ -57,6 +64,7 @@ body {
 :focus-visible { outline: 2px solid var(--bamboo); outline-offset: 3px; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }   /* <picture> only chooses the format; the <img> inside does the layout */
 
 h1, h2, h3 { font-family: var(--display); font-weight: 500; color: var(--ink); }
 h1 { font-size: clamp(2.4rem, 5.6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.03em; }
@@ -375,17 +383,21 @@ footer.on-forest { background: var(--basalt); padding: 52px 0 26px; }   /* one s
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 
-.loader { position: fixed; inset: 0; z-index: 10000; background: var(--forest); display: grid; place-items: center; transition: opacity .5s var(--ease), visibility .5s; animation: loaderFailsafe .4s 4.5s forwards; }   /* CSS failsafe: clears itself even if the script never runs */
-@keyframes loaderFailsafe { to { opacity: 0; visibility: hidden; } }
-.loader.done { opacity: 0; visibility: hidden; }
+
+
+/* ===== INTRO LOADER ===== */
+/* Timed entirely in CSS so it never waits on scripts, fonts or images: bricks build in 0.6s, the cover lifts by ~0.9s.
+   Repeat visits and reduced-motion get .no-intro from the inline head script and never see it. */
+.loader { position: fixed; inset: 0; z-index: 10000; background: var(--forest); display: grid; place-items: center; pointer-events: none; animation: loaderOut .25s .65s forwards; }
+.no-intro .loader { display: none; }
+@keyframes loaderOut { to { opacity: 0; visibility: hidden; } }
 .loader-mark { width: 84px; height: 84px; }
-.loader-mark .m-brick, .loader-mark .m-clay { opacity: 0; animation: brickIn .3s var(--ease) forwards; }
-.loader-mark rect:nth-of-type(2) { animation-delay: .05s; }
-.loader-mark rect:nth-of-type(3) { animation-delay: .13s; }
-.loader-mark rect:nth-of-type(4) { animation-delay: .21s; }
-.loader-mark rect:nth-of-type(6) { animation-delay: .29s; }
-.loader-mark rect:nth-of-type(7) { animation-delay: .37s; }
-.loader-mark .m-clay { animation-delay: .55s; }
+.loader-mark .m-brick, .loader-mark .m-clay { opacity: 0; animation: brickIn .25s var(--ease) forwards; }
+.loader-mark rect:nth-of-type(3) { animation-delay: .05s; }
+.loader-mark rect:nth-of-type(4) { animation-delay: .1s; }
+.loader-mark rect:nth-of-type(6) { animation-delay: .15s; }
+.loader-mark rect:nth-of-type(7) { animation-delay: .2s; }
+.loader-mark .m-clay { animation-delay: .35s; }
 @keyframes brickIn { to { opacity: 1; } }
 
 /* ===== RESPONSIVE ===== */
@@ -501,7 +513,6 @@ footer.on-forest { background: var(--basalt); padding: 52px 0 26px; }   /* one s
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .btn, .product-media img { transition: none !important; }
-  .loader-mark rect { opacity: 1 !important; animation: none !important; }
   .car-track { scroll-behavior: auto; }
   .brick { animation: none !important; transition: none !important; }
 }

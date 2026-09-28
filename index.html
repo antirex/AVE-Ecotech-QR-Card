@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){var d=document.documentElement;try{if(sessionStorage.getItem('introSeen')||matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('no-intro');}else{sessionStorage.setItem('introSeen','1');}}catch(e){d.classList.add('no-intro');}})();</script>
 <title>AVE EcoTech — Turning Waste into Sustainable Infrastructure</title>
 <meta name="description" content="AVE EcoTech makes EcoTiles — 100% recycled, zero-cement paver tiles for builders, green architects and public bodies. Lower install cost, zero cutting waste, and a contribution towards IGBC, LEED and GRIHA credits. Pune, India." />
 <meta name="keywords" content="EcoTiles, recycled pavers, paver tiles, green construction materials, zero cement, recycled plastic tiles, IGBC, LEED, GRIHA, AVE EcoTech, Pune, Maharashtra" />
@@ -127,9 +128,10 @@
 <link rel="icon" type="image/png" sizes="256x256" href="favicon.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Sans+Devanagari&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+<!-- the three fonts that paint the first screen, fetched alongside the stylesheet -->
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/ibm-plex-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
 
 <link rel="stylesheet" href="styles.css" />
 <noscript><style>.loader{display:none}.reveal{opacity:1!important;transform:none!important}</style></noscript>
@@ -137,7 +139,7 @@
 <body>
 <a id="top"></a>
 
-<!-- ===== INTRO LOADER ===== -->
+<!-- ===== INTRO LOADER — first visit only, pure CSS, gone by ~0.9s; never waits for downloads ===== -->
 <div class="loader" id="loader" aria-hidden="true">
   <svg class="loader-mark" viewBox="0 0 74 74">
         <rect class="m-ground" width="74" height="74"/>
@@ -260,12 +262,12 @@
     <div class="picker reveal">
       <span class="label">Colour — <span class="nc" id="colourName">All colours</span></span>
       <div class="swatches" role="radiogroup" aria-label="Choose a tile colour">
-        <button type="button" class="swatch is-all is-on" role="radio" aria-checked="true" data-name="All colours" data-img="images/ecotiles.jpg" data-note="Product photo" aria-label="All colours"></button>
-        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#6E8B72" data-name="Green" data-img="images/tile-green.jpg" data-note="Product photo" aria-label="Green"></button>
-        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#3A3D3F" data-name="Charcoal" data-img="images/tile-charcoal.jpg" data-note="Product photo" aria-label="Charcoal"></button>
-        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#A96A54" data-name="Terracotta" data-img="images/tile-terracotta.jpg" data-note="Product photo" aria-label="Terracotta"></button>
-        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#5A6E78" data-name="Slate blue" data-img="images/tile-slate-blue.jpg" data-note="Product photo" aria-label="Slate blue"></button>
-        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#C9B292" data-name="Sand" data-img="images/tile-sand.jpg" data-note="Colour preview" aria-label="Sand"></button>
+        <button type="button" class="swatch is-all is-on" role="radio" aria-checked="true" data-name="All colours" data-img="images/ecotiles" data-note="Product photo" aria-label="All colours"></button>
+        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#6E8B72" data-name="Green" data-img="images/tile-green" data-note="Product photo" aria-label="Green"></button>
+        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#3A3D3F" data-name="Charcoal" data-img="images/tile-charcoal" data-note="Product photo" aria-label="Charcoal"></button>
+        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#A96A54" data-name="Terracotta" data-img="images/tile-terracotta" data-note="Product photo" aria-label="Terracotta"></button>
+        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#5A6E78" data-name="Slate blue" data-img="images/tile-slate-blue" data-note="Product photo" aria-label="Slate blue"></button>
+        <button type="button" class="swatch" role="radio" aria-checked="false" style="--c:#C9B292" data-name="Sand" data-img="images/tile-sand" data-note="Colour preview" aria-label="Sand"></button>
       </div>
     </div>
     <div class="product-cta reveal">
@@ -275,7 +277,7 @@
   </div>
   <div class="product-media">
     <figure class="reveal">
-      <img id="tileImg" src="images/ecotiles.jpg" alt="EcoTiles — All colours" width="640" height="640" />
+      <picture><source type="image/avif" srcset="images/ecotiles.avif" /><source type="image/webp" srcset="images/ecotiles.webp" /><img id="tileImg" loading="lazy" src="images/ecotiles.jpg" alt="EcoTiles — All colours" width="800" height="800" decoding="async" /></picture>
       <figcaption class="label" id="tileNote">Product photo</figcaption>
     </figure>
   </div>
@@ -308,8 +310,8 @@
       <div class="proof-item">
         <span class="label">Trusted by</span>
         <div class="trusted-logos">
-          <a class="partner" href="https://www.sustainandsave.com/" target="_blank" rel="noopener" aria-label="Sustain &amp; Save (opens in a new tab)"><img src="images/partners/sustain-and-save.png" alt="Sustain &amp; Save" loading="lazy" /></a>
-          <span class="partner"><img src="images/partners/saikrushna-developers.png" alt="Saikrushna Developers" loading="lazy" /></span>
+          <a class="partner" href="https://www.sustainandsave.com/" target="_blank" rel="noopener" aria-label="Sustain &amp; Save (opens in a new tab)"><picture><source type="image/avif" srcset="images/partners/sustain-and-save.avif" /><source type="image/webp" srcset="images/partners/sustain-and-save.webp" /><img width="134" height="112" src="images/partners/sustain-and-save.png" alt="Sustain &amp; Save" loading="lazy" decoding="async" /></picture></a>
+          <span class="partner"><picture><source type="image/avif" srcset="images/partners/saikrushna-developers.avif" /><source type="image/webp" srcset="images/partners/saikrushna-developers.webp" /><img width="173" height="112" src="images/partners/saikrushna-developers.png" alt="Saikrushna Developers" loading="lazy" decoding="async" /></picture></span>
         </div>
       </div>
     </div>
@@ -421,43 +423,43 @@
     <div class="apps-car reveal" data-carousel id="apps">
       <div class="car-track apps-track">
         <article class="app-slide">
-          <div class="app-img"><img src="images/install-footpath.jpg" alt="Society footpath paved with EcoTiles in red and grey" width="697" height="700" loading="lazy" /><span class="app-tag">On site</span></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/install-footpath.avif" /><source type="image/webp" srcset="images/install-footpath.webp" /><img src="images/install-footpath.jpg" alt="Society footpath paved with EcoTiles in red and grey" width="697" height="523" loading="lazy" decoding="async" /></picture><span class="app-tag">On site</span></div>
           <h3>Footpaths &amp; streetscapes</h3><p>Quick to lay, easy to maintain.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/install-parking.jpg" alt="Stilt parking floor paved with EcoTiles in red and black" width="525" height="700" loading="lazy" /><span class="app-tag">On site</span></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/install-parking.avif" /><source type="image/webp" srcset="images/install-parking.webp" /><img src="images/install-parking.jpg" alt="Stilt parking floor paved with EcoTiles in red and black" width="525" height="394" loading="lazy" decoding="async" /></picture><span class="app-tag">On site</span></div>
           <h3>Stilt &amp; society parking</h3><p>Takes the load, laid without cutting.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/install-park.jpg" alt="Park walkway paved with EcoTiles in grey" width="700" height="523" loading="lazy" /><span class="app-tag">On site</span></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/install-park.avif" /><source type="image/webp" srcset="images/install-park.webp" /><img src="images/install-park.jpg" alt="Park walkway paved with EcoTiles in grey" width="697" height="523" loading="lazy" decoding="async" /></picture><span class="app-tag">On site</span></div>
           <h3>Parks &amp; public walkways</h3><p>Grip underfoot, no algae.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/install-verandah.jpg" alt="Home verandah paved with patterned EcoTiles" width="395" height="700" loading="lazy" /><span class="app-tag">On site</span></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/install-verandah.avif" /><source type="image/webp" srcset="images/install-verandah.webp" /><img src="images/install-verandah.jpg" alt="Home verandah paved with patterned EcoTiles" width="395" height="296" loading="lazy" decoding="async" /></picture><span class="app-tag">On site</span></div>
           <h3>Home verandahs</h3><p>Five colours to mix and match.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/app-parking.jpg" alt="Paved driveway with a parked car" width="322" height="126" loading="lazy" /></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/app-parking.avif" /><source type="image/webp" srcset="images/app-parking.webp" /><img src="images/app-parking.jpg" alt="Paved driveway with a parked car" width="168" height="126" loading="lazy" decoding="async" /></picture></div>
           <h3>Parking &amp; driveways</h3><p>Oil and acid resistant.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/app-labs.jpg" alt="Chemical spill being wiped from a laboratory floor" width="866" height="337" loading="lazy" /></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/app-labs.avif" /><source type="image/webp" srcset="images/app-labs.webp" /><img src="images/app-labs.jpg" alt="Chemical spill being wiped from a laboratory floor" width="449" height="337" loading="lazy" decoding="async" /></picture></div>
           <h3>Industrial &amp; chemical labs</h3><p>Where spills attack cement.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/app-terraces.jpg" alt="Paved podium terrace outside a building" width="320" height="126" loading="lazy" /></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/app-terraces.avif" /><source type="image/webp" srcset="images/app-terraces.webp" /><img src="images/app-terraces.jpg" alt="Paved podium terrace outside a building" width="168" height="126" loading="lazy" decoding="async" /></picture></div>
           <h3>Terraces &amp; podiums</h3><p>A real saving on dead load.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/app-gardens.jpg" alt="Stepping-stone path through a planted garden" width="332" height="130" loading="lazy" /></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/app-gardens.avif" /><source type="image/webp" srcset="images/app-gardens.webp" /><img src="images/app-gardens.jpg" alt="Stepping-stone path through a planted garden" width="173" height="130" loading="lazy" decoding="async" /></picture></div>
           <h3>Gardens &amp; resorts</h3><p>UV resistant paths and steps.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/app-pool.jpg" alt="Paved deck around a swimming pool" width="320" height="126" loading="lazy" /></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/app-pool.avif" /><source type="image/webp" srcset="images/app-pool.webp" /><img src="images/app-pool.jpg" alt="Paved deck around a swimming pool" width="168" height="126" loading="lazy" decoding="async" /></picture></div>
           <h3>Pool decks</h3><p>Grip when wet, no spalling.</p>
         </article>
         <article class="app-slide">
-          <div class="app-img"><img src="images/app-footpath.jpg" alt="Paved footpath beside a hedge" width="704" height="276" loading="lazy" /></div>
+          <div class="app-img"><picture><source type="image/avif" srcset="images/app-footpath.avif" /><source type="image/webp" srcset="images/app-footpath.webp" /><img src="images/app-footpath.jpg" alt="Paved footpath beside a hedge" width="368" height="276" loading="lazy" decoding="async" /></picture></div>
           <h3>Streetscapes</h3><p>Weather, traffic, monsoon.</p>
         </article>
       </div>
