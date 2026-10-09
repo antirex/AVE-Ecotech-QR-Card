@@ -90,7 +90,7 @@ section { padding: 54px 0; }
 .on-forest { background: var(--forest); color: var(--on-forest); }
 .on-forest h1, .on-forest h2, .on-forest h3 { color: var(--on-forest); }
 .on-forest .label { color: var(--on-forest-soft); }
-.on-forest .label.clay { color: var(--clay); }   /* clay type is permitted on Deep Forest only */
+.on-forest .label.clay { color: var(--clay); font-size: .9rem; }   /* clay type on Deep Forest only, and large enough to pass 3:1 */
 .on-forest .lead { color: #C7D6C5; }
 
 /* icon system: 24 grid, 2 unit stroke, square cap, square join, never filled */
@@ -133,13 +133,13 @@ header.scrolled { border-color: var(--line-forest); }
 .nav-right { display: flex; align-items: center; gap: 14px; }
 .nav-right .btn { padding: 12px 18px; }
 .menu-only { display: none; }
-.theme-toggle { width: 42px; height: 42px; border: 1px solid var(--line-forest); background: transparent; color: var(--sage); display: grid; place-items: center; cursor: pointer; transition: border-color .2s; }
+.theme-toggle { width: 44px; height: 44px; border: 1px solid var(--line-forest); background: transparent; color: var(--sage); display: grid; place-items: center; cursor: pointer; transition: border-color .2s; }
 .theme-toggle:hover { border-color: var(--sage); }
 .theme-toggle .ico { width: 18px; height: 18px; }
 .theme-toggle .sun { display: none; }
 :root[data-theme="dark"] .theme-toggle .sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .moon { display: none; }
-.burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.burger { display: none; background: none; border: none; cursor: pointer; padding: 10px; }
 .burger span { display: block; width: 24px; height: 2px; background: var(--sage); margin: 5px 0; }
 
 /* ===== HERO ===== */
@@ -148,8 +148,8 @@ header.scrolled { border-color: var(--line-forest); }
 .hero h1 { max-width: 12ch; }
 .hero .lead { margin-top: 30px; max-width: 52ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-.hero-claims { margin-top: 40px; padding: 20px 0 24px; border-top: 1px solid var(--line-forest); display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--mono); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--clay); }
-.hero-claims i { font-style: normal; }
+.hero-claims { margin-top: 40px; padding: 20px 0 24px; border-top: 1px solid var(--line-forest); display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--mono); font-size: .9rem; letter-spacing: .16em; text-transform: uppercase; color: var(--sage); }
+.hero-claims i { font-style: normal; color: var(--clay); }   /* the dividers carry the clay accent; the words stay readable */
 
 /* hero side: the brand's brick bond, laid course by course, above the spec block */
 .hero-side { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
@@ -217,7 +217,7 @@ sup { font-size: .7em; line-height: 0; }
 .car-bar { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 1px solid var(--line); }
 .who-tabs { display: flex; gap: 28px; overflow-x: auto; scrollbar-width: none; }
 .who-tabs::-webkit-scrollbar { display: none; }
-.who-tab { position: relative; flex: none; background: none; border: 0; cursor: pointer; padding: 0 0 14px; font-family: var(--mono); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); transition: color .15s; }
+.who-tab { position: relative; flex: none; background: none; border: 0; cursor: pointer; min-height: 44px; padding: 0 0 14px; font-family: var(--mono); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; color: var(--soft); transition: color .15s; }
 .who-tab:hover, .who-tab.is-on { color: var(--ink); }
 .who-tab i { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--line); opacity: 0; }
 .who-tab.is-on i { opacity: 1; }
@@ -234,7 +234,7 @@ sup { font-size: .7em; line-height: 0; }
 .who-lead h3 { font-size: clamp(1.45rem, 2.4vw, 2rem); font-weight: 500; line-height: 1.14; letter-spacing: -0.025em; margin: 18px 0 26px; max-width: 16ch; }
 .who-lead .btn { margin-top: auto; align-self: flex-start; }
 .who-facts { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); }
-.who-facts li { display: flex; flex-direction: column; gap: 10px; padding: 26px 22px; border-left: 1px solid var(--line); }
+.who-facts li { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 26px 22px; border-left: 1px solid var(--line); }
 .who-facts li:first-child { border-left: 0; }
 .who-facts b { font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1; letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
 .who-facts b::after { content: ""; display: block; width: 14px; height: 6px; margin-top: 16px; background: var(--clay); }   /* the clay brick from the monogram */
@@ -297,7 +297,7 @@ a.partner:hover { opacity: .75; }
 /* ===== FAQ ===== */
 .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: start; }
 .faq h2 { margin-bottom: 16px; max-width: 12ch; }
-.faq p a { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; }
+.faq p a { display: inline-block; padding: 10px 0; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; }
 .faq-list { border-bottom: 1px solid var(--line); }
 .faq-list details { border-top: 1px solid var(--line); }
 .faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 13px 0; font-family: var(--display); font-weight: 500; font-size: 1.08rem; letter-spacing: -0.01em; color: var(--ink); }
@@ -311,9 +311,10 @@ a.partner:hover { opacity: .75; }
 .contact h2 { margin-bottom: 22px; max-width: 14ch; }
 .contact .lead { max-width: 46ch; }
 .contact-rows { margin: 32px 0 0; border-top: 1px solid var(--line-forest); }
-.contact-row { display: grid; grid-template-columns: 110px 1fr; gap: 2px 16px; padding: 18px 0; border-bottom: 1px solid var(--line-forest); align-items: baseline; }
+.contact-row { display: grid; grid-template-columns: 110px 1fr; gap: 0 16px; padding: 10px 0; border-bottom: 1px solid var(--line-forest); align-items: baseline; }
 .contact-row .label { grid-row: span 2; }
 .contact-row a, .contact-row > span:not(.label) { grid-column: 2; font-family: var(--display); font-size: 1.15rem; color: var(--sage); }
+.contact-row a { display: block; padding: 12px 0; }
 .contact-row a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 .form { border: 1px solid var(--line-forest); padding: 32px; }
@@ -359,9 +360,10 @@ footer.on-forest { background: var(--basalt); padding: 52px 0 26px; }   /* one s
 .foot-col p { margin-top: 20px; font-size: .92rem; color: #C7D6C5; max-width: 34ch; }
 .foot-col p.hi { margin-top: 2px; font-family: 'IBM Plex Sans Devanagari', var(--sans); font-size: .83rem; }   /* regional script sits below the English at 90% */
 .foot-col h5 { margin-bottom: 16px; }
-.foot-col a:not(.brand), .foot-col .static { display: block; font-size: .94rem; color: #C7D6C5; padding: 5px 0; overflow-wrap: anywhere; }
+.foot-col a:not(.brand), .foot-col .static { display: block; font-size: .94rem; color: #C7D6C5; padding: 11px 0; overflow-wrap: anywhere; }
 .foot-col a:not(.brand):hover { color: var(--sage); text-decoration: underline; text-underline-offset: 4px; }
 .foot-bottom { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line-forest); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.foot-bottom a { display: inline-block; padding: 14px 0; }
 .foot-bottom a:hover { color: var(--sage); }
 
 /* ===== SOCIAL ===== */
@@ -470,7 +472,7 @@ footer.on-forest { background: var(--basalt); padding: 52px 0 26px; }   /* one s
   .commit p { font-size: .86rem; }
   .contact-rows { margin-top: 22px; }
   .field { margin-bottom: 12px; }
-  .foot-col a:not(.brand), .foot-col .static { padding: 3px 0; }
+  .foot-col a:not(.brand), .foot-col .static { padding: 11px 0; }
   .credits { padding: 40px 0; }
   .app-slide { width: 84%; }
   .apps-track { gap: 14px; }
