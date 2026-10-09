@@ -282,11 +282,6 @@ a.partner:hover { opacity: .75; }
 .quote blockquote { font-family: var(--display); font-weight: 400; font-size: 1.18rem; line-height: 1.45; letter-spacing: -0.01em; }
 .quote figcaption { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; line-height: 1.8; opacity: .78; }
 .quote figcaption span { display: block; }
-.team { margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line); }
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
-.member img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; margin-bottom: 14px; }
-.member .label { display: block; margin: 4px 0 8px; }
-.member p { font-size: .92rem; line-height: 1.5; color: var(--soft); }
 
 /* ===== ABOUT ===== */
 .about { background: var(--bg-alt); }
@@ -495,7 +490,6 @@ footer.on-forest { background: var(--basalt); padding: 52px 0 26px; }   /* one s
   .quote { padding: 22px 20px; gap: 20px; }
   .quote blockquote { font-size: 1rem; }
   .commit-grid { grid-template-columns: 1fr 1fr; gap: 22px 16px; margin-top: 32px; }
-  .team-grid { grid-template-columns: 1fr; }
   .field-pair { grid-template-columns: 1fr; gap: 0; }
   .form { padding: 20px; }
   .dialog form { padding: 22px 18px; }

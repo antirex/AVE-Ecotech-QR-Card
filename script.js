@@ -37,7 +37,7 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     try {
-      const res = await fetch('https://formsubmit.co/ajax/aveecotech@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/7cc27c41c3d959f18ef92b46b0f5458e', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: new FormData(form)
@@ -211,7 +211,7 @@
       bSubmit.disabled = true;
       bSubmit.textContent = 'Preparing…';
       try {
-        await fetch('https://formsubmit.co/ajax/aveecotech@gmail.com', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(bForm) });
+        await fetch('https://formsubmit.co/ajax/7cc27c41c3d959f18ef92b46b0f5458e', { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(bForm) });
       } catch (err) { /* never hold the brochure hostage to a network error */ }
       try { localStorage.setItem('brochureLead', '1'); } catch (err) {}
       startDownload();
@@ -222,7 +222,7 @@
 
   // hero bond: once the courses are laid, the clay brick moves to a new place every few seconds
   const bricks = Array.from(document.querySelectorAll('.bond .brick'));
-  if (bricks.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (bricks.length && !reduced) {
     setInterval(() => {
       if (document.hidden) return;
       const current = bricks.findIndex((b) => b.classList.contains('is-clay'));

@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Regression check for the site. Open from a local server (see README). Prints RESULT … 0 problems when all is well. -->
+<html><body style="margin:0;font:14px monospace"><div id="host"></div><pre id="out"></pre>
+<script type="module">
+const out = document.getElementById('out'), host = document.getElementById('host');
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+const problems = [];
+
+function frame(w, h) { const f = document.createElement('iframe'); f.style.cssText = `border:0;display:block;width:${w}px;height:${h}px`; host.appendChild(f); return f; }
+async function load(f, theme) { f.src = 'index.html'; await new Promise((r) => (f.onload = r)); f.contentDocument.documentElement.setAttribute('data-theme', theme); await wait(80); }
+// 1. no horizontal overflow and no clipped text, every 40px from 320 to 1920, light and dark
+for (const theme of ['light', 'dark']) for (let w = 320; w <= 1920; w += 40) {
+  const f = frame(w, 800); await load(f, theme); const d = f.contentDocument, de = d.documentElement;
+  const clipped = [...d.querySelectorAll('h1,h2,h3,p,li,a,span,b,label,button,figcaption,blockquote,summary')]
+    .filter((e) => !e.closest('.loader,dialog,.brand,.car-track,.who-tabs') && e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).display !== 'inline');
+  if (de.scrollWidth !== de.clientWidth) problems.push(`${theme} ${w}px: page is ${de.scrollWidth - de.clientWidth}px too wide`);
+  if (clipped.length) problems.push(`${theme} ${w}px: text clipped in ${clipped[0].tagName}.${clipped[0].className}`);
+  f.remove();
+}
+// 2. behaviour at desktop width
+const f = frame(1440, 900); await load(f, 'light'); const d = f.contentDocument, w = f.contentWindow;
+const errs = []; w.addEventListener('error', (e) => errs.push(e.message)); await wait(1200);
+const broken = [...d.images].filter((i) => i.complete && !i.naturalWidth); if (broken.length) problems.push(`broken image: ${broken[0].getAttribute('src')}`);
+const dead = [...d.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href')).filter((h) => h.length > 1 && !d.querySelector(h)); if (dead.length) problems.push(`link to missing section: ${dead[0]}`);
+const tile = d.getElementById('tileImg');
+for (const s of d.querySelectorAll('.swatch')) { s.click(); await wait(350); if (!tile.currentSrc.includes(s.dataset.img + '.') || !tile.naturalWidth) problems.push(`colour picker: ${s.dataset.name} did not load`); }
+const tabs = [...d.querySelectorAll('.who-tab')]; tabs[2].click(); await wait(200); if (!tabs[2].classList.contains('is-on')) problems.push('audience carousel: tab click did not select');
+d.querySelector('.who-car [data-next]').click(); await wait(200); if (!tabs[0].classList.contains('is-on')) problems.push('audience carousel: next did not wrap to the first tab');
+const apps = d.querySelector('#apps .car-track'); d.querySelector('[data-carousel-controls="apps"] [data-next]').click(); await wait(300); if (apps.scrollLeft < 100) problems.push('applications carousel: next did not scroll');
+try { w.localStorage.removeItem('brochureLead'); } catch (e) {}
+const dlg = d.getElementById('brochureDialog'); d.querySelector('[data-brochure]').click(); await wait(100); if (!dlg.open) problems.push('brochure button did not open the lead form');
+if (d.getElementById('brochureForm').checkValidity()) problems.push('brochure form accepts an empty submission'); dlg.close();
+for (const s of d.querySelectorAll('script[type="application/ld+json"]')) { try { JSON.parse(s.textContent); } catch (e) { problems.push('structured data is not valid JSON'); } }
+if (errs.length) problems.push(`script error: ${errs[0]}`);
+f.remove();
+out.textContent = `RESULT ${problems.length} problems\n${problems.join('\n')}`; document.title = out.textContent.split('\n')[0];
+</script></body></html>

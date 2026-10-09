@@ -1,4 +1,9 @@
+# Search engines and AI crawlers are welcome; only the gated brochure is kept out of indexes.
 User-agent: *
 Allow: /
+Disallow: /AVE-EcoTech-Brochure.pdf
+
+# A plain-text summary of the company for AI assistants
+# https://antirex.github.io/AVE-Ecotech-QR-Card/llms.txt
 
 Sitemap: https://antirex.github.io/AVE-Ecotech-QR-Card/sitemap.xml

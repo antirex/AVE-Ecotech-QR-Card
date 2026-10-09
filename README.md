@@ -16,10 +16,8 @@ Built to the **AVE EcoTech Brand Guidelines (Edition 1.0, 2026)** with content f
 - `script.js` — behavior (theme toggle, mobile menu, scroll reveals, contact form)
 - `images/` — product & application photos (from the product brochure), `tile-*.jpg` single-colour tiles for the colour picker (cut from the product photo; `tile-sand.jpg` is a re-tinted colour preview), `partners/` logos, `monogram.svg`, `og-image.jpg` (social share card) and `AVE-BondBadge-Reverse.jpg` (supplied reverse logo artwork)
 - `favicon.png` / `favicon-32.png` / `apple-touch-icon.png` — favicons (the brick monogram)
-- `robots.txt` / `sitemap.xml` — SEO
+- `robots.txt` / `sitemap.xml` / `llms.txt` — SEO and a plain-text company summary for AI assistants
 - `AVE-EcoTech-Brochure.pdf` — current product brochure. **Not linked directly**: every "Get the brochure" button opens a short lead form (name, phone, email, organisation, role) that is emailed via FormSubmit, then the download starts. The brochure keeps the detail the site deliberately leaves out (full specs, test data, the cement comparison)
-- `AVE-EcoTech-Deck.pdf` — previous company deck (no longer linked from the site)
-- `logo.jpeg` — previous AVE EcoTech logo (superseded by the brick monogram)
 - `ave_ecotech_qr.png` — constant QR code (points to the GitHub Pages URL above)
 - `product_brochure_QR.png` — QR code pointing to the product brochure (Google Drive)
 
@@ -39,6 +37,11 @@ A first visit downloads about 270 KB (was ~1.1–1.25 MB) with no third-party re
 - **Intro loader**: first visit per tab only, timed in CSS (gone by ~0.9 s); it never waits for downloads.
 - **Colour picker**: the other tile colours are fetched only when the picker scrolls into view or a swatch is touched.
 - **Brochure PDF**: photos recompressed (4.8 MB → 1.8 MB); pages render the same.
+
+## Checking a change
+Open `check.html` from a local server, or run:
+`"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --force-prefers-reduced-motion --window-size=4000,1000 --virtual-time-budget=120000 --dump-dom http://localhost:8765/check.html | grep -o "RESULT.*"`
+It sweeps 320–1920 px wide in light and dark, and clicks through the colour picker, both carousels and the brochure form. Expect `0 problems`.
 
 ## How the QR code works
 The printed QR code always points to the GitHub Pages URL. Visitors now land directly on the website. To change what visitors see, just edit `index.html` and commit — the QR code never needs to be reprinted.
